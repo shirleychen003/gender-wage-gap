@@ -5,7 +5,7 @@ library(janitor)
 library(lubridate)
 
 # 6 = US, 13 = Sweden, 32 = Denmark, 4 = Great Britain
-# v14 = Shld women work:after marr.before kids 
+# v14 = Shld women work:after marr.before kids
 
 response_data <-
   read_csv(
@@ -64,22 +64,22 @@ report_counts_question <- response_data |>
 response_data_denmark <-
   report_counts_question |>
   filter(country == "Denmark") |>
-  mutate(percentage = number_of_reports / 1232 * 100)
+  mutate(percentage = number_of_reports / 1232)
 
 response_data_sweden <-
   report_counts_question |>
   filter(country == "Sweden") |>
-  mutate(percentage = number_of_reports / 1011 * 100)
+  mutate(percentage = number_of_reports / 1011)
 
 response_data_us <-
   report_counts_question |>
   filter(country == "U.S.") |>
-  mutate(percentage = number_of_reports / 984 * 100)
+  mutate(percentage = number_of_reports / 984)
 
 response_data_uk <-
   report_counts_question |>
   filter(country == "U.K.") |>
-  mutate(percentage = number_of_reports / 1715 * 100)
+  mutate(percentage = number_of_reports / 1715)
 
 report_counts_percentage <-
   bind_rows(response_data_denmark) |>
@@ -92,9 +92,8 @@ report_counts_percentage
 
 # Graph Simulated Data
 report_counts_percentage |>
-  ggplot(aes(x = v14, fill = country)) +
-  geom_bar(stat="count", position = "dodge2") +
-  labs(x = "Question Response", y = "Percentage of observations", fill = "Country")
-
-stat
-
+  ggplot(aes(x = v14, y = percentage, fill = country)) +
+  geom_col(position = "dodge") +
+  labs(x = "Question Response",
+       y = "Percentage of Observations", fill = "Country") +
+  scale_y_continuous(labels = scales::percent)
