@@ -9,7 +9,7 @@ library(lubridate)
 # v14 = Shld women work:after marr.before kids
 
 # Open data
-response_data_q1_ <-
+response_data_q1 <-
   read_csv(
     "inputs/data/raw_data.csv",
     show_col_types = FALSE
