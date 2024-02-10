@@ -121,7 +121,7 @@ report_counts_percentage |>
   labs(x = "Question Responses",
        y = "Percentage of Observations", fill = "Country") +
   scale_fill_manual( values = c("#26476C", "#5C7439", "#863B3E", "#D6832F")) +
-  scale_y_continuous(labels = scales::percent)
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 
 
 
@@ -242,7 +242,7 @@ report_counts_percentage_q2 |>
   labs(x = "Question Responses",
        y = "Percentage of Observations", fill = "Country") +
   scale_fill_manual( values = c("#26476C", "#5C7439", "#863B3E", "#D6832F")) +
-  scale_y_continuous(labels = scales::percent)
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 
 
 
@@ -365,7 +365,7 @@ report_counts_percentage_q3 |>
   labs(x = "Question Responses",
        y = "Percentage of Observations", fill = "Country") +
   scale_fill_manual( values = c("#26476C", "#5C7439", "#863B3E", "#D6832F")) +
-  scale_y_continuous(labels = scales::percent)
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 
 
 
@@ -487,5 +487,5 @@ report_counts_percentage_q4 |>
   labs(x = "Question Responses",
        y = "Percentage of Observations", fill = "Country") +
   scale_fill_manual( values = c("#26476C", "#5C7439", "#863B3E", "#D6832F")) +
-  scale_y_continuous(labels = scales::percent)
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 
