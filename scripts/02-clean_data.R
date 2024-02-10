@@ -89,11 +89,20 @@ report_counts_percentage <-
   
 report_counts_percentage
 
+report_counts_percentage$country <- 
+  factor(report_counts_percentage$country, levels = c("U.S.", "U.K.", 
+                                                      "Denmark", "Sweden"))
+report_counts_percentage$v14 <-
+  factor(report_counts_percentage$v14, levels = c("Work Full-Time", 
+                                                  "Work Part-Time", 
+                                                  "Stay at Home"))
 
 # Graph Simulated Data
 report_counts_percentage |>
   ggplot(aes(x = v14, y = percentage, fill = country)) +
   geom_col(position = "dodge") +
-  labs(x = "Question Response",
+  theme(legend.position = "bottom") +
+  labs(x = "Question Responses",
        y = "Percentage of Observations", fill = "Country") +
+  scale_fill_manual( values = c("#26476C", "#5C7439", "#863B3E", "#D6832F")) +
   scale_y_continuous(labels = scales::percent)
