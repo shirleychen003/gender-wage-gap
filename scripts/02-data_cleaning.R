@@ -17,6 +17,9 @@ library(dplyr)
 #### Question 1:Should women work after marriage and before kids? ####
 # 31 = Chile (CL), 35 = Brazil (BR)
 # v14 = Shld women work:after marr.before kids
+# v15 = Shld women work:child under school age
+# v16 = Shld women work:youngest kid at school
+# v17 = Shld women work: when kids left home
 
 # Open data
 response_data <-
