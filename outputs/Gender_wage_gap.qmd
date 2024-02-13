@@ -1,0 +1,113 @@
+```{r}
+# Question 1: 
+report_counts_percentage$country <- 
+  factor(report_counts_percentage$country, levels = c("U.S.", "Denmark", 
+                                                      "Japan", "Chile", 
+                                                      "Brazil", "Philippines"))
+report_counts_percentage$v14 <-
+  factor(report_counts_percentage$v14, levels = c("Work Full-Time", 
+                                                  "Work Part-Time", 
+                                                  "Stay at Home"))
+
+
+# Graph Simulated Data
+report_counts_percentage |>
+  ggplot(aes(x = v14, y = percentage, fill = country)) +
+  geom_col(position = "dodge") +
+  theme(legend.position = "bottom") +
+  labs(x = "Question Responses",
+       y = "Percentage of Observations", fill = "Country") +
+  scale_fill_manual( values = c("#26476C", "#863B3E", "red", "pink", 
+                                "green", "blue")) +
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1))
+```
+
+
+```{r}
+
+# Question 2
+
+report_counts_percentage_q2$country <- 
+  factor(report_counts_percentage_q2$country, levels = c("U.S.", "Denmark", 
+                                                         "Japan", "Chile", 
+                                                         "Brazil", "Philippines"))
+report_counts_percentage_q2$v15 <-
+  factor(report_counts_percentage_q2$v15, levels = c("Work Full-Time", 
+                                                     "Work Part-Time", 
+                                                     "Stay at Home"))
+
+
+# Graph Simulated Data
+report_counts_percentage_q2 |>
+  ggplot(aes(x = v15, y = percentage, fill = country)) +
+  geom_col(position = "dodge") +
+  theme(legend.position = "bottom") +
+  labs(x = "Question Responses",
+       y = "Percentage of Observations", fill = "Country") +
+  scale_fill_manual( values = c("#26476C", "#863B3E", "red", "pink", 
+                                "green", "blue")) +
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1))
+
+```
+
+
+
+```{r}
+
+# Question 3
+
+report_counts_percentage_q3$country <- 
+  factor(report_counts_percentage_q3$country, levels = c("U.S.", "Denmark", 
+                                                         "Japan", "Chile", 
+                                                         "Brazil", "Philippines"))
+report_counts_percentage_q3$v16 <-
+  factor(report_counts_percentage_q3$v16, levels = c("Work Full-Time", 
+                                                     "Work Part-Time", 
+                                                     "Stay at Home"))
+
+
+# Graph Simulated Data
+report_counts_percentage_q3 |>
+  ggplot(aes(x = v16, y = percentage, fill = country)) +
+  geom_col(position = "dodge") +
+  theme(legend.position = "bottom") +
+  labs(x = "Question Responses",
+       y = "Percentage of Observations", fill = "Country") +
+  scale_fill_manual( values = c("#26476C", "#863B3E", "red", "pink", 
+                                "green", "blue")) +
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1))
+
+
+
+```
+
+
+
+```{r}
+
+
+# Question 4
+
+
+report_counts_percentage_q4$country <- 
+  factor(report_counts_percentage_q4$country, levels = c("U.S.", "Denmark", 
+                                                         "Japan", "Chile", 
+                                                         "Brazil", "Philippines"))
+report_counts_percentage_q4$v17 <-
+  factor(report_counts_percentage_q4$v17, levels = c("Work Full-Time", 
+                                                     "Work Part-Time", 
+                                                     "Stay at Home"))
+
+
+# Graph Simulated Data
+report_counts_percentage_q4 |>
+  ggplot(aes(x = v17, y = percentage, fill = country)) +
+  geom_col(position = "dodge") +
+  theme(legend.position = "bottom") +
+  labs(x = "Question Responses",
+       y = "Percentage of Observations", fill = "Country") +
+  scale_fill_manual( values = c("#26476C", "#863B3E", "red", "pink", 
+                                "green", "blue")) +
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1))
+```
+
