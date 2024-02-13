@@ -529,10 +529,10 @@ response_data_2012_q1 <-
 # Clean data
 response_data_2012_q1 <-
   clean_names(response_data_2012_q1) |>
+  rename(country = v4) |>
   select(country, v12) |>
   drop_na(v12) |>
   filter(country == 608 | country == 152)
-
 head(response_data_2012_q1)
 
 ## Rename question responses
@@ -561,6 +561,5 @@ response_data_2012_q1 <-
       
     )
   )
-
 head(response_data_2012_q1)
 
