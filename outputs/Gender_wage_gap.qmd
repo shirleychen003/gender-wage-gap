@@ -84,8 +84,6 @@ report_counts_percentage_q3 |>
 
 
 ```{r}
-
-
 # Question 4
 
 

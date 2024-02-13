@@ -509,3 +509,60 @@ report_counts_percentage_q4 <-
   bind_rows(response_data_q4_philippines) |>
   bind_rows(response_data_q4_japan)
 
+
+
+
+
+#### 2012 Data - Should women work child school age ####
+# Open data
+
+# Philippines = 608
+response_data_q1 <-
+  read_csv(
+    "inputs/data/raw_data_2012.csv",
+    show_col_types = FALSE
+  )
+
+# Clean data
+response_data_q1 <-
+  clean_names(response_data_q1) |>
+  select(country, v12) |>
+  drop_na(v14) |>
+  filter(country == 6 | country == 31 | country == 32 | country == 35 | 
+           country == 21 | country == 24)
+
+head(response_data_q1)
+
+## Rename question responses
+response_data_q1 <-
+  response_data_q1 |>
+  mutate(
+    v14 = case_match(
+      v14,
+      1 ~ "Work Full-Time",
+      2 ~ "Work Part-Time",
+      3 ~ "Stay at Home",
+      6 ~ "Woman Can Choose",
+      8 ~ "Can't Choose",
+      9 ~ "No Answer"
+    )
+  )
+
+## Rename countries
+response_data_q1 <-
+  response_data_q1 |>
+  mutate(
+    country = case_match(
+      country,
+      6 ~ "U.S.",
+      31 ~ "Chile",
+      32 ~ "Denmark",
+      35 ~ "Brazil",
+      21 ~ "Philippines",
+      24 ~ "Japan"
+      
+    )
+  )
+
+head(response_data_q1)
+
