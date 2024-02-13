@@ -517,19 +517,21 @@ report_counts_percentage_q4 <-
 # Open data
 
 # Philippines = 608
-response_data_q1 <-
+# Chile = 152
+
+
+response_data_2012 <-
   read_csv(
     "inputs/data/raw_data_2012.csv",
     show_col_types = FALSE
   )
 
 # Clean data
-response_data_q1 <-
-  clean_names(response_data_q1) |>
+response_data_2012 <-
+  clean_names(response_data_2012) |>
   select(country, v12) |>
   drop_na(v14) |>
-  filter(country == 6 | country == 31 | country == 32 | country == 35 | 
-           country == 21 | country == 24)
+  filter(country == 608 | country == 152)
 
 head(response_data_q1)
 
