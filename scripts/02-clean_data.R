@@ -520,27 +520,27 @@ report_counts_percentage_q4 <-
 # Chile = 152
 
 
-response_data_2012 <-
+response_data_2012_q1 <-
   read_csv(
     "inputs/data/raw_data_2012.csv",
     show_col_types = FALSE
   )
 
 # Clean data
-response_data_2012 <-
-  clean_names(response_data_2012) |>
+response_data_2012_q1 <-
+  clean_names(response_data_2012_q1) |>
   select(country, v12) |>
-  drop_na(v14) |>
+  drop_na(v12) |>
   filter(country == 608 | country == 152)
 
-head(response_data_q1)
+head(response_data_2012_q1)
 
 ## Rename question responses
-response_data_q1 <-
-  response_data_q1 |>
+response_data_2012_q1 <-
+  response_data_2012_q1 |>
   mutate(
-    v14 = case_match(
-      v14,
+    v12 = case_match(
+      v12,
       1 ~ "Work Full-Time",
       2 ~ "Work Part-Time",
       3 ~ "Stay at Home",
@@ -551,20 +551,16 @@ response_data_q1 <-
   )
 
 ## Rename countries
-response_data_q1 <-
-  response_data_q1 |>
+response_data_2012_q1 <-
+  response_data_2012_q1 |>
   mutate(
     country = case_match(
       country,
-      6 ~ "U.S.",
-      31 ~ "Chile",
-      32 ~ "Denmark",
-      35 ~ "Brazil",
-      21 ~ "Philippines",
-      24 ~ "Japan"
+      152 ~ "Chile",
+      608 ~ "Philippines"
       
     )
   )
 
-head(response_data_q1)
+head(response_data_2012_q1)
 
