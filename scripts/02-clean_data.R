@@ -524,7 +524,7 @@ report_counts_percentage_q4 <-
 # Chile = 152
 
 
-response_data_2012_q2 <-
+response_data_2012 <-
   read_csv(
     "inputs/data/raw_data_2012.csv",
     show_col_types = FALSE
@@ -532,7 +532,7 @@ response_data_2012_q2 <-
 
 # Clean data
 response_data_2012_q2 <-
-  clean_names(response_data_2012_q2) |>
+  clean_names(response_data_2012) |>
   rename(country = v4) |>
   rename(question_response = v12) |>
   select(country, question_response) |>
@@ -627,42 +627,42 @@ response_data_q2_philippines <-
 
 
 # Bind response data for school age children from 2012 and 2002
-report_counts_percentage_2012_2002 <-
+comparison_q2 <-
   bind_rows(response_data_2012_q2_chile) |>
   bind_rows(response_data_2012_q2_philippines)|>
   bind_rows(response_data_q2_chile) |>
   bind_rows(response_data_q2_philippines)
 
-report_counts_percentage_2012_2002
+comparison_q2
 
 
 
-#### 2012 Data - Should women work child under school age ####
+#### 2012 Data - Should women work youngest child in schl ####
 # Open data
 
 # Philippines = 608
 # Chile = 152
 
 
-response_data_2012_q2 <-
+response_data_2012 <-
   read_csv(
     "inputs/data/raw_data_2012.csv",
     show_col_types = FALSE
   )
 
 # Clean data
-response_data_2012_q2 <-
-  clean_names(response_data_2012_q2) |>
+response_data_2012_q3 <-
+  clean_names(response_data_2012) |>
   rename(country = v4) |>
-  rename(question_response = v12) |>
+  rename(question_response = v13) |>
   select(country, question_response) |>
   drop_na(question_response) |>
   filter(country == 608 | country == 152)
-head(response_data_2012_q2)
+head(response_data_2012_q3)
 
 ## Rename question responses
-response_data_2012_q2 <-
-  response_data_2012_q2 |>
+response_data_2012_q3 <-
+  response_data_2012_q3 |>
   mutate(
     question_response = case_match(
       question_response,
@@ -676,8 +676,8 @@ response_data_2012_q2 <-
   )
 
 ## Rename countries
-response_data_2012_q2 <-
-  response_data_2012_q2 |>
+response_data_2012_q3 <-
+  response_data_2012_q3 |>
   mutate(
     country = case_match(
       country,
@@ -686,21 +686,21 @@ response_data_2012_q2 <-
       
     )
   )
-head(response_data_2012_q2)
+head(response_data_2012_q3)
 
 # Create new dataframes to calculate percentage 
 
 
 ## Create a count of num of reports per question per country
-report_counts_question_2012_q2 <- response_data_2012_q2 |>
+report_counts_question_2012_q3 <- response_data_2012_q3 |>
   group_by(country, question_response) |>
   summarise(number_of_reports = n())
 
 
 
 # Create a count of total responses for each country
-chile_count_2012_q2 <- length(which(response_data_2012_q2$country == "Chile"))
-philippines_count_2012_q2 <- length(which(response_data_2012_q2$country == "Philippines"))
+chile_count_2012_q3 <- length(which(response_data_2012_q3$country == "Chile"))
+philippines_count_2012_q3 <- length(which(response_data_2012_q3$country == "Philippines"))
 
 
 
@@ -708,49 +708,49 @@ philippines_count_2012_q2 <- length(which(response_data_2012_q2$country == "Phil
 
 
 ## Create response percentage for Chile
-response_data_2012_q2_chile <-
-  report_counts_question_2012_q2 |>
+response_data_2012_q3_chile <-
+  report_counts_question_2012_q3 |>
   filter(country == "Chile") |>
-  mutate(percentage = number_of_reports / chile_count_2012_q2)
+  mutate(percentage = number_of_reports / chile_count_2012_q3)
 
 ## Create response percentage for Philippines
-response_data_2012_q2_philippines <-
-  report_counts_question_2012_q2 |>
+response_data_2012_q3_philippines <-
+  report_counts_question_2012_q3 |>
   filter(country == "Philippines") |>
-  mutate(percentage = number_of_reports / philippines_count_2012_q2)
+  mutate(percentage = number_of_reports / philippines_count_2012_q3)
 
 
 
 # Bind response data per country together into one dataframe
-report_counts_percentage_2012_q2 <-
-  bind_rows(response_data_2012_q2_chile) |>
-  bind_rows(response_data_2012_q2_philippines)
+report_counts_percentage_2012_q3 <-
+  bind_rows(response_data_2012_q3_chile) |>
+  bind_rows(response_data_2012_q3_philippines)
 
-report_counts_percentage_2012_q2
+report_counts_percentage_2012_q3
 
 # Create year variable
-response_data_2012_q2_chile <-
-  response_data_2012_q2_chile |>
+response_data_2012_q3_chile <-
+  response_data_2012_q3_chile |>
   mutate(year_collected = "2012")
 
-response_data_2012_q2_philippines <-
-  response_data_2012_q2_philippines |>
+response_data_2012_q3_philippines <-
+  response_data_2012_q3_philippines |>
   mutate(year_collected = "2012")
 
-response_data_q2_chile <-
-  response_data_q2_chile |>
+response_data_q3_chile <-
+  response_data_q3_chile |>
   mutate(year_collected = "2002")
 
-response_data_q2_philippines <-
-  response_data_q2_philippines |>
+response_data_q3_philippines <-
+  response_data_q3_philippines |>
   mutate(year_collected = "2002")
 
 
 # Bind response data for school age children from 2012 and 2002
-report_counts_percentage_2012_2002 <-
-  bind_rows(response_data_2012_q2_chile) |>
-  bind_rows(response_data_2012_q2_philippines)|>
-  bind_rows(response_data_q2_chile) |>
-  bind_rows(response_data_q2_philippines)
+comparison_q3 <-
+  bind_rows(response_data_2012_q3_chile) |>
+  bind_rows(response_data_2012_q3_philippines)|>
+  bind_rows(response_data_q3_chile) |>
+  bind_rows(response_data_q3_philippines)
 
-report_counts_percentage_2012_2002
+comparison_q3
