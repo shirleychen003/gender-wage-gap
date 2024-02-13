@@ -123,7 +123,7 @@ response_data_q1_japan <-
 
 
 # Bind response data per country together into one dataframe
-report_counts_percentage <-
+cleaned_q1_2002 <-
   bind_rows(response_data_q1_denmark) |>
   bind_rows(response_data_q1_us) |>
   bind_rows(response_data_q1_chile) |>
@@ -131,7 +131,7 @@ report_counts_percentage <-
   bind_rows(response_data_q1_philippines) |>
   bind_rows(response_data_q1_japan)
 
-
+write_csv(cleaned_q1_2002, "inputs/data/analysis_data/cleaned_q1_2002.csv")
 
 
 
@@ -252,7 +252,7 @@ response_data_q2_japan <-
 
 
 # Bind response data per country together into one dataframe
-report_counts_percentage_q2 <-
+cleaned_q2_2002 <-
   bind_rows(response_data_q2_denmark) |>
   bind_rows(response_data_q2_us) |>
   bind_rows(response_data_q2_chile) |>
@@ -260,7 +260,7 @@ report_counts_percentage_q2 <-
   bind_rows(response_data_q2_philippines) |>
   bind_rows(response_data_q2_japan)
 
-
+write_csv(cleaned_q2_2002, "inputs/data/analysis_data/cleaned_q2_2002.csv")
 
 
 #### Should women work with youngest kid in school? ####
@@ -378,7 +378,7 @@ response_data_q3_japan <-
 
 
 # Bind response data per country together into one dataframe
-report_counts_percentage_q3 <-
+cleaned_q3_2002 <-
   bind_rows(response_data_q3_denmark) |>
   bind_rows(response_data_q3_us) |>
   bind_rows(response_data_q3_chile) |>
@@ -386,7 +386,7 @@ report_counts_percentage_q3 <-
   bind_rows(response_data_q3_philippines) |>
   bind_rows(response_data_q3_japan)
 
-
+write_csv(cleaned_q3_2002, "inputs/data/analysis_data/cleaned_q3_2002.csv")
 
 #### Should women work when kids have left home? ####
 # 6 = US, 13 = Sweden, 32 = Denmark, 4 = Great Britain
@@ -505,7 +505,7 @@ response_data_q4_japan <-
 
 
 # Bind response data per country together into one dataframe
-report_counts_percentage_q4 <-
+cleaned_q4_2002 <-
   bind_rows(response_data_q4_denmark) |>
   bind_rows(response_data_q4_us) |>
   bind_rows(response_data_q4_chile) |>
@@ -513,6 +513,7 @@ report_counts_percentage_q4 <-
   bind_rows(response_data_q4_philippines) |>
   bind_rows(response_data_q4_japan)
 
+write_csv(cleaned_q4_2002, "inputs/data/analysis_data/cleaned_q4_2002")
 
 
 
@@ -633,8 +634,8 @@ comparison_q2 <-
   bind_rows(response_data_q2_chile) |>
   bind_rows(response_data_q2_philippines)
 
-comparison_q2
 
+write_csv(comparison_q2, "inputs/data/analysis_data/comparison_q2")
 
 
 #### 2012 Data - Should women work youngest child in schl ####
@@ -753,4 +754,4 @@ comparison_q3 <-
   bind_rows(response_data_q3_chile) |>
   bind_rows(response_data_q3_philippines)
 
-comparison_q3
+write_csv(comparison_q3, "inputs/data/analysis_data/comparison_q3")
