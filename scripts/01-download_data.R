@@ -13,6 +13,8 @@ library(haven)
 #### Acquire data ####
 converted_data <- read_dta("inputs/data/ISSP-Gender-Norms-2002.dta")
 
+
 #### Save data as CSV file ####
 write_csv(converted_data, "inputs/data/raw_data.csv")
+write_csv(converted_data, "inputs/data/raw_data_2012.csv")
 
