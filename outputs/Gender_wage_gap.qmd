@@ -1,5 +1,5 @@
 ---
-title: "From the Suburbs to Downtown: An In-Depth Analysis of Major Crime Occurrences Throughout the City of Toronto’s 158 Neighbourhoods (2019-2023)"
+title: "From Laws to Practice: Global Perspectives of Womens’ Involvement in the Workplace"
 author: "Shirley Chen, Jessica Im, David James Dimalanta"
 thanks: "Code and data in this report are available at:https://github.com/shirleychen003/gender-wage-gap.git" 
 date: "today"
