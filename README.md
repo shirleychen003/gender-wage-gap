@@ -16,7 +16,7 @@ scripts contains the R scripts used to simulate, download, and clean data.
 ## Reproducing the Report
 1. Run scripts/01-download_data.R to download raw data
 2. Run scripts/02-data_cleaning.R to generate cleaned data
-3. Render outputs/paper/toronto_crime_analysis.qmd to generate the PDF of the paper
+3. Render outputs/paper/gender_wage_gap.qmd to generate the PDF of the paper
 
 ## LLM Usage
 LLMs were not used in the making of this paper.
