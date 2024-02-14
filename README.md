@@ -11,7 +11,7 @@ inputs/data contains the data sources used in analysis, including raw and cleane
 
 outputs/paper contains the files used to generate the paper, including the Quarto document, the bibliography file, and the finalized version of the paper in the form of a PDF.
 
-scripts contains the R scripts used to simulate, download, and clean data.
+scripts contains the graph replications and R scripts used to simulate, download, and clean data.
 
 ## Reproducing the Report
 1. Run scripts/01-download_data.R to download raw data
