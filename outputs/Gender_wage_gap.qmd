@@ -34,6 +34,16 @@ Measures of personal and professional satisfaction, life quality, and perceived 
 
 
 ```{r}
+#| include: false
+#| warning: false
+#| message: false
+#| echo: false
+
+
+library(tidyverse)
+library(knitr)
+library(here)
+
 #### Import data ####
 # Question 1 Dataset
 question_1_2002 = read_csv(
@@ -42,25 +52,31 @@ question_1_2002 = read_csv(
 )
 
 # Question 2 Dataset
-question_1_2002 = read_csv(
+question_2_2002 = read_csv(
   file = here("inputs/data/analysis_data/cleaned_q2_2002.csv"),
   show_col_types = FALSE
 )
 
 # Question 3 Dataset
-question_1_2002 = read_csv(
-  file = here("inputs/data/analysis_data/cleaned_q4_2002.csv"),
+question_3_2002 = read_csv(
+  file = here("inputs/data/analysis_data/cleaned_q3_2002.csv"),
   show_col_types = FALSE
 )
 
 # Question 4 Dataset
-question_1_2002 = read_csv(
+question_4_2002 = read_csv(
+  file = here("inputs/data/analysis_data/cleaned_q4_2002.csv"),
+  show_col_types = FALSE
+)
+
+# Comparison Question 2 Dataset
+question_2_comparison = read_csv(
   file = here("inputs/data/analysis_data/comparison_q2.csv"),
   show_col_types = FALSE
 )
 
 # Question 1 Dataset
-question_1_2002 = read_csv(
+question_3_comparison = read_csv(
   file = here("inputs/data/analysis_data/comparison_q3.csv"),
   show_col_types = FALSE
 )
@@ -72,19 +88,24 @@ question_1_2002 = read_csv(
 
 
 ```{r}
+#| label: tbl-q1_2002
+#| tbl-cap: Responses to "Should women work full-time, part-time, or not at all after marriage, but before children?"
+#| echo: false
+
+
 # Question 1: 
-report_counts_percentage$country <- 
-  factor(report_counts_percentage$country, levels = c("U.S.", "Denmark", 
+question_1_2002$country <- 
+  factor(question_1_2002$country, levels = c("U.S.", "Denmark", 
                                                       "Japan", "Chile", 
                                                       "Brazil", "Philippines"))
-report_counts_percentage$v14 <-
-  factor(report_counts_percentage$v14, levels = c("Work Full-Time", 
+question_1_2002$v14 <-
+  factor(question_1_2002$v14, levels = c("Work Full-Time", 
                                                   "Work Part-Time", 
                                                   "Stay at Home"))
 
 
 # Graph Simulated Data
-report_counts_percentage |>
+question_1_2002 |>
   ggplot(aes(x = v14, y = percentage, fill = country)) +
   geom_histogram(position = "dodge") +
   theme(legend.position = "bottom") +
@@ -100,18 +121,18 @@ report_counts_percentage |>
 
 # Question 2
 
-report_counts_percentage_q2$country <- 
-  factor(report_counts_percentage_q2$country, levels = c("U.S.", "Denmark", 
+question_2_2002$country <- 
+  factor(question_2_2002$country, levels = c("U.S.", "Denmark", 
                                                          "Japan", "Chile", 
                                                          "Brazil", "Philippines"))
-report_counts_percentage_q2$v15 <-
-  factor(report_counts_percentage_q2$v15, levels = c("Work Full-Time", 
+question_2_2002$v15 <-
+  factor(question_2_2002$v15, levels = c("Work Full-Time", 
                                                      "Work Part-Time", 
                                                      "Stay at Home"))
 
 
 # Graph Simulated Data
-report_counts_percentage_q2 |>
+question_2_2002 |>
   ggplot(aes(x = v15, y = percentage, fill = country)) +
   geom_col(position = "dodge") +
   theme(legend.position = "bottom") +
@@ -129,18 +150,18 @@ report_counts_percentage_q2 |>
 
 # Question 3
 
-report_counts_percentage_q3$country <- 
-  factor(report_counts_percentage_q3$country, levels = c("U.S.", "Denmark", 
+question_3_2002$country <- 
+  factor(question_3_2002$country, levels = c("U.S.", "Denmark", 
                                                          "Japan", "Chile", 
                                                          "Brazil", "Philippines"))
-report_counts_percentage_q3$v16 <-
-  factor(report_counts_percentage_q3$v16, levels = c("Work Full-Time", 
+question_3_2002$v16 <-
+  factor(question_3_2002$v16, levels = c("Work Full-Time", 
                                                      "Work Part-Time", 
                                                      "Stay at Home"))
 
 
 # Graph Simulated Data
-report_counts_percentage_q3 |>
+question_3_2002 |>
   ggplot(aes(x = v16, y = percentage, fill = country)) +
   geom_col(position = "dodge") +
   theme(legend.position = "bottom") +
@@ -158,18 +179,18 @@ report_counts_percentage_q3 |>
 
 ```{r}
 # Question 4
-report_counts_percentage_q4$country <- 
-  factor(report_counts_percentage_q4$country, levels = c("U.S.", "Denmark", 
+question_4_2002$country <- 
+  factor(question_4_2002$country, levels = c("U.S.", "Denmark", 
                                                          "Japan", "Chile", 
                                                          "Brazil", "Philippines"))
-report_counts_percentage_q4$v17 <-
-  factor(report_counts_percentage_q4$v17, levels = c("Work Full-Time", 
+question_4_2002$v17 <-
+  factor(question_4_2002$v17, levels = c("Work Full-Time", 
                                                      "Work Part-Time", 
                                                      "Stay at Home"))
 
 
 # Graph Simulated Data
-report_counts_percentage_q4 |>
+question_4_2002 |>
   ggplot(aes(x = v17, y = percentage, fill = country)) +
   geom_col(position = "dodge") +
   theme(legend.position = "bottom") +
@@ -182,17 +203,17 @@ report_counts_percentage_q4 |>
 
 
 ```{r}
-comparison_q2$country <- 
-  factor(comparison_q2$country, levels = c("Chile", "Philippines"))
+question_2_comparison$country <- 
+  factor(question_2_comparison$country, levels = c("Chile", "Philippines"))
 
-comparison_q2$v17 <-
-  factor(comparison_q2$v17, levels = c("Work Full-Time", 
+question_2_comparison$v17 <-
+  factor(question_2_comparison$v17, levels = c("Work Full-Time", 
                                                      "Work Part-Time", 
                                                      "Stay at Home", "Can't Choose", "No Answer"))
 
 
 # Graph Simulated Data
-comparison_q2 |>
+question_2_comparison |>
   ggplot(aes(x = v17, y = percentage, fill = country)) +
   geom_col(position = "dodge") +
   theme(legend.position = "bottom") +
