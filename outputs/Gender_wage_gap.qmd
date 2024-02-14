@@ -1,3 +1,38 @@
+
+# Data 
+
+## Source
+The foundation of our replication study is rooted in the examination of the impact of children on gender inequality in labor market outcomes, initially explored by Kleven, Landais, and Søgaard using Danish administrative data. Our study extends this investigation globally, focusing on the Philippines, Japan, Chile, and Brazil. To maintain consistency with the original study, we will utilize the 2002 dataset on Family and Changing Gender Roles from the International Social Survey Programme (ISSP), available at GESIS. This dataset offers a source of internationally comparable data concerning gender roles, family structures, and labor market participation, facilitating a direct comparison across diverse cultural and economic landscapes. Additionally, we will compare our findings with the 2012 ISSP module data to identify changes in gender roles and labor market dynamics over time. This comparison aims to highlight the evolving nature of gender inequality and the child penalty, enhancing our analysis with a longitudinal perspective that underscores global and national trends in gender equality.
+
+## Methodology
+Our methodology will adapt the original study's quasi-experimental event study approach to the ISSP 2002 dataset. This dataset encompasses a wide range of variables relevant to understanding gender roles within the family and their impact on labor market outcomes, offering a unique opportunity to explore these dynamics in a global context. Specifically, we will:
+
+- Analyze responses related to labor force participation, hours worked, and perceptions of gender roles before and after the birth of the first child.
+- Utilize the ISSP 2002 and 2012 datasets’ cross-national scope to compare findings across the target countries, assessing the universality and variability of the child penalty phenomenon.
+- Incorporate additional variables from the ISSP dataset that capture cultural attitudes toward gender roles and family policies, allowing for a more nuanced analysis of factors influencing gender inequality in the labor market.
+
+## Features
+The original survey data evaluates participants across 235 variables, offering a granular view of the interplay between gender roles, family responsibilities, and work. These variables span a broad spectrum, from demographic details to nuanced attitudes towards gender equality and labor market participation, providing a rich foundation for our analysis.
+
+### Demographics
+Variables include age, gender, marital status, number of children, and education level, allowing for a detailed demographic profiling of respondents.
+
+### Family and Household Dynamics
+This category covers variables related to household composition, childcare arrangements, and sharing of household responsibilities, highlighting the division of labor within families.
+
+### Labor Market Engagement
+Variables assess employment status, work hours, occupation type, and perceptions of work-life balance, capturing the intricate relationship between labor market participation and family life.
+
+### Gender Roles and Attitudes
+A significant portion of the dataset is devoted to exploring societal and personal beliefs about gender roles, including attitudes towards women's and men's roles in the family and the workplace.
+
+### Policy and Cultural Context
+Variables also probe awareness and opinions on family-related policies, such as parental leave and public childcare, as well as broader cultural norms influencing gender roles.
+
+### Well-being and Satisfaction
+Measures of personal and professional satisfaction, life quality, and perceived impacts of family and work responsibilities on individual well-being are included, offering insights into the subjective experiences of respondents.
+
+
 ```{r}
 # Question 1: 
 report_counts_percentage$country <- 
