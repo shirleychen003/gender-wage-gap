@@ -2,15 +2,17 @@
 title: "From Laws to Practice: Global Perspectives of Womens’ Involvement in the Workplace"
 author: "Shirley Chen, Jessica Im, David James Dimalanta"
 thanks: "Code and data in this report are available at:https://github.com/shirleychen003/gender-wage-gap.git" 
-date: "today"
+date: today
 date-format: "long" 
 abstract: ""
 format: pdf
 toc: true
 number-sections: true
-bibliography: references.bib
 ---
-```{r}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
 #| include: false
 ### Workspace Setup ###
 library(tidyverse)
@@ -70,10 +72,6 @@ The four questions regarding gender equality that were surveyed across the count
 … the child has left home?”(Figure 4)
 
 ```{r}
-<<<<<<< HEAD
-#| echo: false
-#| fig-cap: Do you think women should work outside the home full-time, part-time, or not at all when they are married but with no children?
-=======
 #| include: false
 #| warning: false
 #| message: false
@@ -132,23 +130,12 @@ question_3_comparison = read_csv(
 #| tbl-cap: Responses to "Should women work full-time, part-time, or not at all after marriage, but before children?"
 #| echo: false
 
->>>>>>> 4b203b0a58697d37fdc521a45d256ddaae19ac36
 
 # Question 1: 
-question_1_2002$country <- 
-  factor(question_1_2002$country, levels = c("U.S.", "Denmark", 
-                                                      "Japan", "Chile", 
-                                                      "Brazil", "Philippines"))
-question_1_2002$v14 <-
-  factor(question_1_2002$v14, levels = c("Work Full-Time", 
-                                                  "Work Part-Time", 
-                                                  "Stay at Home"))
-
-
 # Graph Simulated Data
 question_1_2002 |>
-  ggplot(aes(x = v14, y = percentage, fill = country)) +
-  geom_histogram(position = "dodge") +
+  ggplot(aes(x = question_response, y = percentage, fill = country)) +
+  geom_col(position = "dodge") +
   theme(legend.position = "bottom") +
   labs(x = "Question Responses",
        y = "Percentage of Observations", fill = "Country") +
@@ -163,20 +150,9 @@ question_1_2002 |>
 
 
 # Question 2
-
-question_2_2002$country <- 
-  factor(question_2_2002$country, levels = c("U.S.", "Denmark", 
-                                                         "Japan", "Chile", 
-                                                         "Brazil", "Philippines"))
-question_2_2002$v15 <-
-  factor(question_2_2002$v15, levels = c("Work Full-Time", 
-                                                     "Work Part-Time", 
-                                                     "Stay at Home"))
-
-
 # Graph Simulated Data
 question_2_2002 |>
-  ggplot(aes(x = v15, y = percentage, fill = country)) +
+  ggplot(aes(x = question_response, y = percentage, fill = country)) +
   geom_col(position = "dodge") +
   theme(legend.position = "bottom") +
   labs(x = "Question Responses",
@@ -193,20 +169,9 @@ question_2_2002 |>
 
 
 # Question 3
-
-question_3_2002$country <- 
-  factor(question_3_2002$country, levels = c("U.S.", "Denmark", 
-                                                         "Japan", "Chile", 
-                                                         "Brazil", "Philippines"))
-question_3_2002$v16 <-
-  factor(question_3_2002$v16, levels = c("Work Full-Time", 
-                                                     "Work Part-Time", 
-                                                     "Stay at Home"))
-
-
 # Graph Simulated Data
 question_3_2002 |>
-  ggplot(aes(x = v16, y = percentage, fill = country)) +
+  ggplot(aes(x = question_response, y = percentage, fill = country)) +
   geom_col(position = "dodge") +
   theme(legend.position = "bottom") +
   labs(x = "Question Responses",
@@ -225,19 +190,9 @@ question_3_2002 |>
 
 
 # Question 4
-question_4_2002$country <- 
-  factor(question_4_2002$country, levels = c("U.S.", "Denmark", 
-                                                         "Japan", "Chile", 
-                                                         "Brazil", "Philippines"))
-question_4_2002$v17 <-
-  factor(question_4_2002$v17, levels = c("Work Full-Time", 
-                                                     "Work Part-Time", 
-                                                     "Stay at Home"))
-
-
 # Graph Simulated Data
 question_4_2002 |>
-  ggplot(aes(x = v17, y = percentage, fill = country)) +
+  ggplot(aes(x = question_response, y = percentage, fill = country)) +
   geom_col(position = "dodge") +
   theme(legend.position = "bottom") +
   labs(x = "Question Responses",
@@ -273,25 +228,10 @@ However, Brazil’s numbers of women engaging in the workforce have had minimal 
 # Conclusion
 
 ```{r}
-<<<<<<< HEAD
-#| echo: false
-
-comparison_q2$country <- 
-  factor(comparison_q2$country, levels = c("Chile", "Philippines"))
-=======
-question_2_comparison$country <- 
-  factor(question_2_comparison$country, levels = c("Chile", "Philippines"))
->>>>>>> 4b203b0a58697d37fdc521a45d256ddaae19ac36
-
-question_2_comparison$v17 <-
-  factor(question_2_comparison$v17, levels = c("Work Full-Time", 
-                                                     "Work Part-Time", 
-                                                     "Stay at Home", "Can't Choose", "No Answer"))
-
 
 # Graph Simulated Data
 question_2_comparison |>
-  ggplot(aes(x = v17, y = percentage, fill = country)) +
+  ggplot(aes(x = question_response, y = percentage, fill = country)) +
   geom_col(position = "dodge") +
   theme(legend.position = "bottom") +
   labs(x = "Question Responses",
