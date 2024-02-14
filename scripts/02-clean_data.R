@@ -513,7 +513,7 @@ cleaned_q4_2002 <-
   bind_rows(response_data_q4_philippines) |>
   bind_rows(response_data_q4_japan)
 
-write_csv(cleaned_q4_2002, "inputs/data/analysis_data/cleaned_q4_2002")
+write_csv(cleaned_q4_2002, "inputs/data/analysis_data/cleaned_q4_2002.csv")
 
 
 
@@ -635,7 +635,7 @@ comparison_q2 <-
   bind_rows(response_data_q2_philippines)
 
 
-write_csv(comparison_q2, "inputs/data/analysis_data/comparison_q2")
+write_csv(comparison_q2, "inputs/data/analysis_data/comparison_q2.csv")
 
 
 #### 2012 Data - Should women work youngest child in schl ####
@@ -754,4 +754,4 @@ comparison_q3 <-
   bind_rows(response_data_q3_chile) |>
   bind_rows(response_data_q3_philippines)
 
-write_csv(comparison_q3, "inputs/data/analysis_data/comparison_q3")
+write_csv(comparison_q3, "inputs/data/analysis_data/comparison_q3.csv")
