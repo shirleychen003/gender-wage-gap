@@ -1,0 +1,19 @@
+country,question_response,number_of_reports,percentage
+Denmark,Stay at Home,36,0.02926829268292683
+Denmark,Work Full-Time,472,0.383739837398374
+Denmark,Work Part-Time,722,0.5869918699186992
+U.S.,Stay at Home,66,0.0650887573964497
+U.S.,Work Full-Time,414,0.40828402366863903
+U.S.,Work Part-Time,534,0.5266272189349113
+Chile,Stay at Home,485,0.3250670241286863
+Chile,Work Full-Time,198,0.13270777479892762
+Chile,Work Part-Time,809,0.542225201072386
+Brazil,Stay at Home,450,0.2358490566037736
+Brazil,Work Full-Time,610,0.319706498951782
+Brazil,Work Part-Time,848,0.4444444444444444
+Philippines,Stay at Home,436,0.38178633975481613
+Philippines,Work Full-Time,295,0.2583187390542907
+Philippines,Work Part-Time,411,0.35989492119089317
+Japan,Stay at Home,185,0.1921079958463136
+Japan,Work Full-Time,209,0.21703011422637591
+Japan,Work Part-Time,569,0.5908618899273105
