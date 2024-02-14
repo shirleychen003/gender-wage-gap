@@ -1,3 +1,31 @@
+---
+title: "From the Suburbs to Downtown: An In-Depth Analysis of Major Crime Occurrences Throughout the City of Toronto’s 158 Neighbourhoods (2019-2023)"
+author: "Shirley Chen, Jessica Im, David James Dimalanta"
+thanks: "Code and data in this report are available at:https://github.com/shirleychen003/gender-wage-gap.git" 
+date: "today"
+date-format: "long" 
+abstract: ""
+format: pdf
+toc: true
+number-sections: true
+bibliography: references.bib
+---
+```{r}
+#| include: false
+### Workspace Setup ###
+library(tidyverse)
+library(janitor)
+library(readr)
+library(opendatatoronto)
+library(here)
+library(ggplot2)
+library(knitr)
+library(usethis)
+library(gitcreds)
+library(kableExtra)
+```
+
+# Introduction
 
 # Data 
 
@@ -32,8 +60,19 @@ Variables also probe awareness and opinions on family-related policies, such as 
 ### Well-being and Satisfaction
 Measures of personal and professional satisfaction, life quality, and perceived impacts of family and work responsibilities on individual well-being are included, offering insights into the subjective experiences of respondents.
 
+# Results
+## Overall Trend
+Figure 1, 2, 3, and 4 are all replications of the graphs in Figure A.II: Gender Norms Across Countries in the online appendix of the original paper, but with U.S, Denmark, Japan, Philippines, Brazil, and Chile as the countries of analysis. Each figure represents the data collected regarding the opinions of womens’ involvement in the workplace, investigating if women without children, with children under school age, with children in school, and with children who have left home should be working full time, part-time, or stay at home.
+The four questions regarding gender equality that were surveyed across the countries were “Do you think women should work outside the home full-time, part-time, or not at all when…
+… they are married but with no children?” (Figure 1) 
+… there is a child under school age?” (Figure 2)
+… the youngest child is still in school?”(Figure 3)
+… the child has left home?”(Figure 4)
 
 ```{r}
+#| echo: false
+#| fig-cap: Do you think women should work outside the home full-time, part-time, or not at all when they are married but with no children?
+
 # Question 1: 
 report_counts_percentage$country <- 
   factor(report_counts_percentage$country, levels = c("U.S.", "Denmark", 
@@ -57,8 +96,10 @@ report_counts_percentage |>
   scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 ```
 
-
 ```{r}
+#| echo: false
+#| fig-cap: Do you think women should work outside the home full-time, part-time, or not at all when there is a child under school age?
+
 
 # Question 2
 
@@ -85,9 +126,10 @@ report_counts_percentage_q2 |>
 
 ```
 
-
-
 ```{r}
+#| echo: false
+#| fig-cap: Do you think women should work outside the home full-time, part-time, or not at all when the youngest child is still in school?
+
 
 # Question 3
 
@@ -116,9 +158,11 @@ report_counts_percentage_q3 |>
 
 ```
 
-
-
 ```{r}
+#| echo: false
+#| fig-cap: Do you think women should work outside the home full-time, part-time, or not at all when the child has left home?
+
+
 # Question 4
 report_counts_percentage_q4$country <- 
   factor(report_counts_percentage_q4$country, levels = c("U.S.", "Denmark", 
@@ -142,8 +186,34 @@ report_counts_percentage_q4 |>
   scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 ```
 
+(Figure 2) shows that amongst all the countries included, there are significantly less votes in support of working full-time and more support for staying at home compared to the other graphs due to the increased responsibility of a younger child. The Asian countries included in the graph, Japan and Philippines, display the most votes for staying at home, with their percentages both being higher than 50%.  This graph displays how most of the countries, excluding Denmark,  are actually like minded within this inquiry, as the values do not significantly differ from one another. 
+However, although the Philippines was one of the leading countries that supported stay at home women, the Philippines amassed the highest number of votes out of all the countries when supporting working full time. This may be attributed to the environmental and political factors of the country; in order to raise a child, it is necessary to also work to generate enough income to make ends meet.
+
+(Figure 1) shows the responses to if women should be working full-time if they are married with no parental duties to attend to. Majority of the responses across all the countries support the idea of women working full time under this circumstance. Denmark showcased the highest degree of support for women working full time, confirming the common, public opinion of the Danish peoples’ progressive mindset. In contrast, the Philippines demonstrated the least amount of support for women working full time and also had the most votes for women staying at home under this circumstance. The Philippines stays consistent in having the most votes in favour of women staying home despite the situation, which is also seen in (Figure 3) and (Figure 4). 
+The graph of (Figure 4) is quite similar to (Figure 1), as they both address womens’ involvement in the workplace when there is none to minimal parental responsibility. 
+
+(Figure 3) and (Figure 4) encompass the opinions of womens’ involvement in the workplace when their children are at ages of increased independence.
+
+Overall, the more childcare responsibilities that a woman is involved in, the lower the workplace expectations. 
+
+## U.S. and Denmark
+
+## South America - Chile and Brazil
+
+## Asia - Philippines and Japan
+
+# Discussion
+## Time Range Considerations
+The datasets were based on information gathered in 2002 and 2012. More than a decade later, it is very possible that the responses will be very different. Depending on the country, gender equality practices may have improved, stayed the same, or worsened.
+In the U.S, there are supposedly more women engaging in the workforce than ever before. The U.S. Bureau of Labor Statistics reported that women aged 16 and older made up 62.3 % of the workforce in 2002 (3). According to a recent 2023 report also released by the Bureau of Labor Statistics, the women’s labour force participation rate hit 77.8%, which can be attributed to various factors (1). One of the reasons for this high number may be the rising  need for women dominating industries, such as healthcare and caregiving. Especially during the COVID-19 pandemic, although many individuals lost their jobs, the health services, hospitality, and education sectors, which are women-dominated workforces, continued to boom throughout the economic recovery. Another potential reason could be due to the decline in childbirth rates. If more women have less childcare responsibility, the amount of women in the workforce is bound to increase since there is more incentive to pursue their occupational desires. The U.S. is a prime example of how the data from 2002 vastly differs from the modern day data. 
+However, Brazil’s numbers of women engaging in the workforce have had minimal change. According to the Gender Data Portal provided by The World Bank, Brazilian women made up 53.4% of the workforce in 2002 and 53.6% in 2022, exhibiting a 0.2% increase in the two decades. Although Brazil has distinct policies to protect women in the workplace, equal rights are not evident in practice. After the pandemic at the end of 2021, women encountered higher unemployment rates. It is recorded that women earn 77% of men’s wages and are mostly within “low-productivity, low-paying jobs” (4). Due to this, it made more economic sense for women to stay at home to do housework or fulfill the caregiver role if there were children present in the daily. In a 2001 survey, 
+
+
+# Conclusion
 
 ```{r}
+#| echo: false
+
 comparison_q2$country <- 
   factor(comparison_q2$country, levels = c("Chile", "Philippines"))
 
