@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: 
+# Purpose:
 # Author:
 # Date:
 # Contact:
@@ -54,7 +54,7 @@ simulated_questionnaire_responses <-
 simulated_questionnaire_responses
 
 # Rotate Data
-simulated_questionnaire_responses_long <- 
+simulated_questionnaire_responses_long <-
   simulated_questionnaire_responses |>
   pivot_longer(
     cols = c("question_1", "question_2", "question_3"),
@@ -63,11 +63,9 @@ simulated_questionnaire_responses_long <-
   )
 
 # Graph Simulated Data
-simulated_questionnaire_responses_long %>% 
-  filter(response >= 3) %>% 
-  # mutate(response = as.factor(response)) %>% 
+simulated_questionnaire_responses_long %>%
+  filter(response >= 3) %>%
+  # mutate(response = as.factor(response)) %>%
   ggplot(aes(x = question, fill = country)) +
-  geom_histogram(stat="count", position = "dodge2") +
+  geom_histogram(stat = "count", position = "dodge2") +
   labs(x = "Question Response", y = "Number of observations", fill = "Country")
-
-
