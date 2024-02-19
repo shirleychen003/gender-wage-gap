@@ -118,15 +118,12 @@ question_3_comparison = read_csv(
   file = here("inputs/data/analysis_data/comparison_q3.csv"),
   show_col_types = FALSE
 )
-
-
-
 ```
 
 
 
 ```{r}
-#| label: tbl-q1_2002
+#| label: tbl-q12002
 #| tbl-cap: Responses to "Should women work full-time, part-time, or not at all after marriage, but before children?"
 #| echo: false
 
