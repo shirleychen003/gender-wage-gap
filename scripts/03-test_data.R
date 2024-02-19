@@ -11,6 +11,7 @@
 
 #### Workspace setup ####
 library(tidyverse)
+library(dplyr)
 
 #### Load Data ####
 q1_2002 <- read_csv("inputs/data/analysis_data/cleaned_q1_2002.csv")
@@ -21,7 +22,7 @@ q4_2002 <- read_csv("inputs/data/analysis_data/cleaned_q4_2002.csv")
 #### Define data check function ####
 check_data <- function(data) {
   # Check for unique countries
-  unique_countries <- data |> pull(country) |> unique()
+  unique_countries <- data |> pull("country") |> unique()
   cat("Unique countries:", length(unique_countries), "\n")
 
   # Check for range of 'number_of_reports'
