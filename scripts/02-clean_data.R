@@ -24,7 +24,6 @@ response_data_q1 <-
   filter(country == 6 | country == 31 | country == 32 | country == 35 | 
            country == 21 | country == 24)
 
-head(response_data_q1)
 
 ## Rename question responses
 response_data_q1 <-
@@ -53,11 +52,9 @@ response_data_q1 <-
       35 ~ "Brazil",
       21 ~ "Philippines",
       24 ~ "Japan"
-      
     )
   )
 
-head(response_data_q1)
 
 
 # Create new dataframes to calculate percentage 
@@ -153,10 +150,9 @@ response_data_q2 <-
   rename(question_response = v15) |>
   select(country, question_response) |>
   drop_na(question_response) |>
-  filter(country == 6 | country == 31 | country == 32 | country == 35 | 
+  filter(country == 6 | country == 31 | country == 32 | country == 35 |
            country == 21 | country == 24)
 
-head(response_data_q2)
 
 ## Rename question responses
 response_data_q2 <-
@@ -188,7 +184,6 @@ response_data_q2 <-
     )
   )
 
-head(response_data_q2)
 
 
 # Create new dataframes to calculate percentage 
@@ -283,8 +278,6 @@ response_data_q3 <-
   filter(country == 6 | country == 31 | country == 32 | country == 35 | 
            country == 21 | country == 24)
 
-head(response_data_q3)
-
 ## Rename question responses
 response_data_q3 <-
   response_data_q3 |>
@@ -315,7 +308,6 @@ response_data_q3 <-
     )
   )
 
-head(response_data_q3)
 
 
 # Create new dataframes to calculate percentage 
@@ -408,7 +400,6 @@ response_data_q4 <-
   filter(country == 6 | country == 31 | country == 32 | country == 35 | 
            country == 21 | country == 24)
 
-head(response_data_q4)
 
 ## Rename question responses
 response_data_q4 <-
@@ -440,7 +431,6 @@ response_data_q4 <-
     )
   )
 
-head(response_data_q4)
 
 
 # Create new dataframes to calculate percentage 
@@ -539,7 +529,6 @@ response_data_2012_q2 <-
   select(country, question_response) |>
   drop_na(question_response) |>
   filter(country == 608 | country == 152)
-head(response_data_2012_q2)
 
 ## Rename question responses
 response_data_2012_q2 <-
@@ -564,10 +553,8 @@ response_data_2012_q2 <-
       country,
       152 ~ "Chile",
       608 ~ "Philippines"
-      
     )
   )
-head(response_data_2012_q2)
 
 # Create new dataframes to calculate percentage 
 
@@ -659,7 +646,6 @@ response_data_2012_q3 <-
   select(country, question_response) |>
   drop_na(question_response) |>
   filter(country == 608 | country == 152)
-head(response_data_2012_q3)
 
 ## Rename question responses
 response_data_2012_q3 <-
@@ -684,10 +670,8 @@ response_data_2012_q3 <-
       country,
       152 ~ "Chile",
       608 ~ "Philippines"
-      
     )
   )
-head(response_data_2012_q3)
 
 # Create new dataframes to calculate percentage 
 
