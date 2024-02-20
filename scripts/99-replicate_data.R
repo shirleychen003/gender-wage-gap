@@ -1,3 +1,12 @@
+#### Preamble ####
+# Purpose: Replicating relevant figures from the original 2002 study.
+# Authors: Shirley Chen, Jessica Im, David James Dimalanta
+# Date: 19 February 2024
+# Contact: david.dimalanta@mail.utoronto.ca
+# License: MIT
+# Pre-requisites: none
+
+# Workspace Setup
 library(dplyr)
 library(tidyverse)
 library(knitr)

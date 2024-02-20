@@ -1,10 +1,10 @@
 #### Preamble ####
-# Purpose:
-# Author:
-# Date:
-# Contact:
-# License:
-# Pre-requisites:
+# Purpose: Simulate the dataset for tests.
+# Author: Shirley Chen, Jessica Im, David James Dimalanta
+# Date: 19 February 2024
+# Contact: david.dimalanta@mail.utoronto.ca
+# License: MIT
+# Pre-requisites: none
 
 
 #### Workspace Setup ####

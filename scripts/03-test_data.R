@@ -1,8 +1,8 @@
 #### Preamble ####
-# Purpose: Basic data integrity checks for quarterly datasets using tidyverse.
+# Purpose: Basic data integrity checks for datasets using tidyverse.
 # Authors: Shirley Chen, Jessica Im, David James Dimalanta
 # Date: 19 February 2024
-# Contact: [Insert Contact Email Here]
+# Contact: david.dimalanta@mail.utoronto.ca
 # License: MIT
 # Pre-requisites:
 # 00-simulate_data.R
