@@ -1,3 +1,14 @@
+#### Preamble ####
+# Purpose: Clean downloaded data using various R packages
+# Authors: Shirley Chen, Jessica Im, David James Dimalanta
+# Date: 19 February 2024
+# Contact: david.dimalanta@mail.utoronto.ca
+# License: MIT
+# Pre-requisites:
+# 00-simulate_data.R
+# 01-download_data.R
+
+# Workspace Setup
 library(dplyr)
 library(tidyverse)
 library(knitr)
@@ -21,7 +32,7 @@ response_data_q1 <-
   rename(question_response = v14) |>
   select(country, question_response) |>
   drop_na(question_response) |>
-  filter(country == 6 | country == 31 | country == 32 | country == 35 | 
+  filter(country == 6 | country == 31 | country == 32 | country == 35 |
            country == 21 | country == 24)
 
 
@@ -57,7 +68,7 @@ response_data_q1 <-
 
 
 
-# Create new dataframes to calculate percentage 
+# Create new dataframes to calculate percentage
 
 
 ## Create a count of num of reports per question per country
