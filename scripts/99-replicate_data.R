@@ -20,7 +20,7 @@ library(lubridate)
 # Open data
 response_data_q1 <-
   read_csv(
-    "inputs/data/raw_data.csv",
+    "inputs/data/raw_data_2002.csv",
     show_col_types = FALSE
   )
 
@@ -141,7 +141,7 @@ report_counts_percentage |>
 # Open data
 response_data_q2 <-
   read_csv(
-    "inputs/data/raw_data.csv",
+    "inputs/data/raw_data_2002.csv",
     show_col_types = FALSE
   )
 
@@ -264,7 +264,7 @@ report_counts_percentage_q2 |>
 # Open data
 response_data_q3 <-
   read_csv(
-    "inputs/data/raw_data.csv",
+    "inputs/data/raw_data_2002.csv",
     show_col_types = FALSE
   )
 
@@ -386,7 +386,7 @@ report_counts_percentage_q3 |>
 # Open data
 response_data_q4 <-
   read_csv(
-    "inputs/data/raw_data.csv",
+    "inputs/data/raw_data_2002.csv",
     show_col_types = FALSE
   )
 
