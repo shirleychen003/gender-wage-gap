@@ -1,10 +1,10 @@
 ---
-title: "From Laws to Beliefs: Global Perspectives of Womens’ Involvement in the Workplace"
+title: "From Laws to Attitudes: Global Perspectives of Mother’s in the Workplace From 2002 to 2012"
 author: "Shirley Chen, Jessica Im, David James Dimalanta"
 thanks: "Code and data in this report are available at:https://github.com/shirleychen003/gender-wage-gap.git" 
 date: today
 date-format: "long" 
-abstract: ""
+abstract: "In a 2002 survey on family and gender roles, Denmark’s attitudes on working mothers was surprisingly similar to the U.S., a country with far less policies supporting gender pay equality in parenthood. To explore how public opinion can differ from policy in regards to working mothers, this report comparatively graphs attitudes on this topic from Brazil, Chile, Denmark, Japan,  Philippines, and the United States. Despite flexible policies in support of mothers working, traditional values persist in support of women staying home globally, especially when there is a child younger than school-age. The disconnect reveals a problematic limitation of policies in ensuring gender equality and a need for further intervention to change existing attitudes."
 format: pdf
 toc: true
 number-sections: true
@@ -30,6 +30,13 @@ library(kableExtra)
 ```
 
 # Introduction
+From 2002 to 2022, the gender pay gap in the United States has only decreased by 2 cents, from 80 to 82 cents per man's dollar [@kochhar_2023]. To combat this, improvements to gender equality in education and anti-discrimination policies have been put in place. Despite these efforts to improve the conditions for employed women, gender inequality and the gender wage gap remain contentious in the workplace. The lack of progress indicates that there is another barrier thwarting progress beyond education or workplace discrimination. In “Children and Gender Inequality: Evidence from Denmark”, Kleven et al. found that a primary cause of the gender wage gap in Denmark is the arrival of children. (2019). While women ages 25-44 are less likely to work with children at home than their childless counterparts, men are more likely [@kochhar_2023]. The impacts of children are beyond labour force participation, but also affect wage and work hours (Klevel et al., 2019). Kleven et al. found that the proportion of impact these “child penalties” have had on wage inequality has increased in the last 30 to 40 years. 
+
+Another interesting statistic explored in “Children and Gender Inequality: Evidence from Denmark'' was the surprising dissonance between perspectives of Scandinavian gender equality and their reported attitudes (Kleven et al., 2019). They discussed the praise Scandinavian countries, like Denmark, have received for their policies supporting working mothers, yet based on the ISSP’s 2002 survey on “Family and Changing Gender Roles'', Denmark and Sweden had very similar attitudes towards working mothers as the U.S. did. This finding could indicate a significant impact of traditional attitudes on child penalties, since they persist despite the favourable policies in place. 
+
+As Kleven et al.’s focus was on Denmark, they limited their exploration of this topic to the U.S., the U.K., Sweden, and Denmark. To further explore the relationship between parental policies and attitudes across the globe, our report extends this investigation globally, focusing on the Philippines, Japan, Chile, and Brazil. To investigate, we use the same data as Kleven et al. and our estimand is the proportion of responses in favour of women working within various parenthood-related scenarios. By comparing the support for working mothers in these six nations to other countries and to their own policies, a cause for persisting gender inequality in countries with favourable policies can be uncovered. To further explore how changing policies have impacted attitudes, a comparison of 2002 to 2012 responses was made. This comparison aims to highlight the evolving nature of gender inequality and the child penalty, enhancing our analysis with a longitudinal perspective that underscores global and national trends in gender equality. 
+
+Six bar graphs were created, revealing that despite flexible policies in support of mothers working, traditional values persist in support of women staying home, especially when there is a child younger than school-age. Section 2 (data) discusses the data set used and methods for cleaning and analysis. Section 3 (results) explores the key findings from our data analysis and Section 4 highlights interesting topics to consider and discuss in relation to our findings. 
 
 # Data
 
@@ -42,56 +49,29 @@ This dataset offers a source of internationally comparable data concerning gende
 Additionally, we will compare our findings with the 2012 ISSP module data to identify changes in gender roles and labor market dynamics over time.
 This comparison aims to highlight the evolving nature of gender inequality and the child penalty, enhancing our analysis with a longitudinal perspective that underscores global and national trends in gender equality.
 
-## Methodology
+## Measurement
 
-Our methodology will adapt the original study's quasi-experimental event study approach to the ISSP 2002 dataset.
-This dataset encompasses a wide range of variables relevant to understanding gender roles within the family and their impact on labor market outcomes, offering a unique opportunity to explore these dynamics in a global context.
-Specifically, we will:
+Our methodology will reproduce and adapt the original study's quasi-experimental event study approach to the ISSP 2002 dataset, using the statistical programming language `R` [@R-base] and related libraries such as `tidyverse` [@R-tidyverse], `janitor` [@R-janitor], `ggplot2` [@R-ggplot2], `dplyr` [@R-dplyr], `readr` [@R-readr], `kableExtra` [@R-kableExtra], and `knitr` [@R-knitr] to clean and analyze our data. This dataset encompasses a wide range of variables relevant to understanding gender roles within the family and their impact on labor market outcomes, offering a unique opportunity to explore these dynamics in a global context. Due to the limited scope of our paper, we focused on the 2002 data and briefly explored the 2012 as well. Specifically, we will:
 
--   Analyze responses related to labor force participation, hours worked, and perceptions of gender roles before and after the birth of the first child.
--   Utilize the ISSP 2002 and 2012 datasets’ cross-national scope to compare findings across the target countries, assessing the universality and variability of the child penalty phenomenon.
--   Incorporate additional variables from the ISSP dataset that capture cultural attitudes toward gender roles and family policies, allowing for a more nuanced analysis of factors influencing gender inequality in the labor market.
+- Analyze responses related to labor force participation, hours worked, and perceptions of gender roles before and after the birth of the first child.
+- Utilize the ISSP 2002 and 2012 datasets’ cross-national scope to compare findings across the target countries, assessing the universality and variability of the child penalty phenomenon.
+- Incorporate additional variables from the ISSP dataset that capture cultural attitudes toward gender roles and family policies, allowing for a more nuanced analysis of factors influencing gender inequality in the labor market.
 
-## Features
-
-The original survey data evaluates participants across 235 variables, offering a granular view of the interplay between gender roles, family responsibilities, and work.
-These variables span a broad spectrum, from demographic details to nuanced attitudes towards gender equality and labor market participation, providing a rich foundation for our analysis.
-
-### Demographics
-
-Variables include age, gender, marital status, number of children, and education level, allowing for a detailed demographic profiling of respondents.
-
-### Family and Household Dynamics
-
-This category covers variables related to household composition, childcare arrangements, and sharing of household responsibilities, highlighting the division of labor within families.
-
-### Labor Market Engagement
-
-Variables assess employment status, work hours, occupation type, and perceptions of work-life balance, capturing the intricate relationship between labor market participation and family life.
-
-### Gender Roles and Attitudes
-
-A significant portion of the dataset is devoted to exploring societal and personal beliefs about gender roles, including attitudes towards women's and men's roles in the family and the workplace.
-
-### Policy and Cultural Context
-
-Variables also probe awareness and opinions on family-related policies, such as parental leave and public childcare, as well as broader cultural norms influencing gender roles.
-
-### Well-being and Satisfaction
-
-Measures of personal and professional satisfaction, life quality, and perceived impacts of family and work responsibilities on individual well-being are included, offering insights into the subjective experiences of respondents.
+The data was downloaded directly from the ISSP website’s data and documentation page. This data can be downloaded freely if the user is registered with GESIS. The dataset was opened in RStudio for cleaning and analysis. The variable for country codes was V3 and variables V14 to V17 were our questions of interest. To clean the data, V3 was renamed to “country” and reassigned each value to its corresponding country: 6 to “U.S.”, 32 to “Denmark”, 31 to “Chile”, 35 to “Brazil”, 21 to “Philippines”, 24 to “Japan”. A cleaned data frame for each question was created by selecting one of the V14 to V17 variables and data without values were removed. The values representing the different responses were also reassigned: 1 to “Work Full-Time”, 2 to “Work Part-Time”, and 3 to “Stay at Home”, 6 to"Woman Can Choose", 8 to"Can't Choose", and 9 to"No Answer". To get the proportion of responses, like in “Children and Gender Inequality: Evidence from Denmark”, we calculated the total number of responses and created a new variable called “percentage”. For our comparison of 2002 to 2012 we selected V3 and filtered for Philippines and Chile. Since they didn’t use questions V14 and V17 in their 2012 survey these questions weren’t compared. In the 2012 data, the variables V12 and V13 represented “Should women work with a child under school age?” and “Should women work with their youngest child in school?” respectively. To create a dataframe with both 2002 and 2012 data, the cleaned 2012 data for both countries was appended to the cleaned 2002 data and another variable called “year_collected” was created where the values were either “2002” or “2012”, depending. 
 
 # Results
 
 ## Overall Trend
 
-Figure 1, 2, 3, and 4 are all replications of the graphs in Figure A.II: Gender Norms Across Countries in the online appendix of the original paper, but with U.S, Denmark, Japan, Philippines, Brazil, and Chile as the countries of analysis.
-Each figure represents the data collected regarding the opinions of womens’ involvement in the workplace, investigating if women without children, with children under school age, with children in school, and with children who have left home should be working full time, part-time, or stay at home.
-The four questions regarding gender equality that were surveyed across the countries were “Do you think women should work outside the home full-time, part-time, or not at all when… … they are married but with no children?”
-(Figure 1) … there is a child under school age?”
-(Figure 2) … the youngest child is still in school?”
-(Figure 3) … the child has left home?”
-(Figure 4)
+@fig-question1, @fig-question2, @fig-question3, and @fig-question4 are replications made with `ggplot` [@R-ggplot2] of the bar graphs in Figure A.II: Gender Norms Across Countries in “Children and Gender Inequality: Evidence from Denmark’s” online appendix, but with U.S, Denmark, Japan, Philippines, Brazil, and Chile as the countries of analysis. Each figure represents the data collected regarding the opinions of working women, investigating if women without children, with children under school age, with children in school, and with children who have left home should be working full time, part-time, or stay at home.
+
+The four questions regarding gender equality that were surveyed across the countries were “Do you think women should work outside the home full-time, part-time, or not at all when:
+
+- … they are married but with no children?” (@fig-question1) 
+- … there is a child under school age?” (@fig-question2)
+- … the youngest child is still in school?”(@fig-question3)
+- … the child has left home?”(@fig-question4)
+
 
 ```{r}
 #| include: false
@@ -143,6 +123,7 @@ question_3_comparison = read_csv(
 ```
 
 ```{r}
+#| label: fig-question1
 #| fig-cap: Q1 - "Should women work full-time, part-time, or not at all after marriage, but before children?"
 #| echo: false
 
@@ -161,6 +142,7 @@ question_1_2002 |>
 ```
 
 ```{r}
+#| label: fig-question2
 #| echo: false
 #| fig-cap: Q2 - "Do you think women should work outside the home full-time, part-time, or not at all when there is a child under school age?"
 
@@ -180,6 +162,7 @@ question_2_2002 |>
 ```
 
 ```{r}
+#| label: fig-question3
 #| echo: false
 #| fig-cap: Q3 - "Do you think women should work outside the home full-time, part-time, or not at all when the youngest child is still in school?"
 
@@ -201,6 +184,7 @@ question_3_2002 |>
 ```
 
 ```{r}
+#| label: fig-question4
 #| echo: false
 #| fig-cap: Q4 - "Do you think women should work outside the home full-time, part-time, or not at all when the child has left home?"
 
@@ -218,57 +202,17 @@ question_4_2002 |>
   scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 ```
 
-(Figure 2) shows that amongst all the countries included, there are significantly less votes in support of working full-time and more support for staying at home compared to the other graphs due to the increased responsibility of a younger child.
-The Asian countries included in the graph, Japan and Philippines, display the most votes for staying at home, with their percentages both being higher than 50%.
-This graph displays how most of the countries, excluding Denmark, are actually like minded within this inquiry, as the values do not significantly differ from one another.
-However, although the Philippines was one of the leading countries that supported stay at home women, the Philippines amassed the highest number of votes out of all the countries when supporting working full time.
-This may be attributed to the environmental and political factors of the country; in order to raise a child, it is necessary to also work to generate enough income to make ends meet.
+@fig-question1 displays the proportion of responses to whether women should be working full-time if they are married with no children. Majority of the responses across all the countries support the idea of women working full-time under this circumstance. As discussed in “Children and Gender Inequality: Evidence from Denmark’s”, Denmark and the U.S. displayed similar support for women working full time. @fig-question1 also shows that Japan is not too far behind. In contrast, the Philippines demonstrated the least amount of support for women working full-time and had the most votes for women staying at home under this circumstance. 
+The Philippines stays consistent in having the most votes in favour of women staying home despite the situation, which is also seen in @fig-question3 and @fig-question4. 
 
-(Figure 1) shows the responses to if women should be working full-time if they are married with no parental duties to attend to.
-Majority of the responses across all the countries support the idea of women working full time under this circumstance.
-Denmark showcased the highest degree of support for women working full time, confirming the common, public opinion of the Danish peoples’ progressive mindset.
-In contrast, the Philippines demonstrated the least amount of support for women working full time and also had the most votes for women staying at home under this circumstance.
-The Philippines stays consistent in having the most votes in favour of women staying home despite the situation, which is also seen in (Figure 3) and (Figure 4).
-The graph of (Figure 4) is quite similar to (Figure 1), as they both address womens’ involvement in the workplace when there is none to minimal parental responsibility.
+@fig-question2 shows that amongst all the countries included, there is significantly less support of women working full-time and more support for staying at home compared to the other graphs. The increased responsibility of a younger child may be the cause of this difference. The Asian countries included in the graph, Japan and Philippines, display the most votes for staying at home, with their percentages both being higher than 50%. Although the Philippines highly supported stay-at-home women, they also amassed the highest proportion of all the countries for supporting full-time work. This may be attributed to the environmental and political factors of the country; in order to raise a child, it is necessary for women to also work to generate enough income to make ends meet. This graph @fig-question2 displays how the countries, excluding Denmark, are like-minded within this inquiry, as the proportions do not significantly differ from one another. Majority of Denmark’s responses were in favour of women working part-time, conveying the support of a work-life balance and the country’s family-friendly workplace policies. 
 
-(Figure 3) and (Figure 4) encompass the opinions of womens’ involvement in the workplace when their children are at ages of increased independence.
 
-Overall, the more childcare responsibilities that a woman is involved in, the lower the workplace expectations.
-
-## U.S. and Denmark
-
-## South America - Chile and Brazil
-
-## Asia - Philippines and Japan
-
-# Discussion
-
-## Time Range Considerations
-
-The datasets were based on information gathered in 2002 and 2012.
-More than a decade later, it is very possible that the responses will be very different.
-Depending on the country, gender equality practices may have improved, stayed the same, or worsened.
-In the U.S, there are supposedly more women engaging in the workforce than ever before.
-The U.S. Bureau of Labor Statistics reported that women aged 16 and older made up 62.3 % of the workforce in 2002 (3).
-According to a recent 2023 report also released by the Bureau of Labor Statistics, the women’s labour force participation rate hit 77.8%, which can be attributed to various factors (1).
-One of the reasons for this high number may be the rising need for women dominating industries, such as healthcare and caregiving.
-Especially during the COVID-19 pandemic, although many individuals lost their jobs, the health services, hospitality, and education sectors, which are women-dominated workforces, continued to boom throughout the economic recovery.
-Another potential reason could be due to the decline in childbirth rates.
-If more women have less childcare responsibility, the amount of women in the workforce is bound to increase since there is more incentive to pursue their occupational desires.
-The U.S. is a prime example of how the data from 2002 vastly differs from the modern day data.
-However, Brazil’s numbers of women engaging in the workforce have had minimal change.
-According to the Gender Data Portal provided by The World Bank, Brazilian women made up 53.4% of the workforce in 2002 and 53.6% in 2022, exhibiting a 0.2% increase in the two decades.
-Although Brazil has distinct policies to protect women in the workplace, equal rights are not evident in practice.
-After the pandemic at the end of 2021, women encountered higher unemployment rates.
-It is recorded that women earn 77% of men’s wages and are mostly within “low-productivity, low-paying jobs” (4).
-Due to this, it made more economic sense for women to stay at home to do housework or fulfill the caregiver role if there were children present in the daily.
-In a 2001 survey,
-
-# Conclusion
-
+## Comparing 2002 and 2012 Sentiments in Chile and Philippines
 ```{r}
+#| label: fig-question5
 #| echo: false
-#| Fig-cap: 2002 vs. 2012 - "Do you think women should work outside the home full-time, part-time, or not at all when there is a child under school age?"
+#| fig-cap: 2002 vs. 2012 - "Do you think women should work outside the home full-time, part-time, or not at all when there is a child under school age?"
 
 question_2_comparison$country <- 
   factor(question_2_comparison$country, levels = c("Chile", "Philippines"))
@@ -293,6 +237,7 @@ question_2_comparison |>
 ```
 
 ```{r}
+#| label: fig-question6
 #| echo: false
 #| fig-cap: 2002 vs. 2012 - "Do you think women should work outside the home full-time, part-time, or not at all when the youngest child is still in school?"
 
@@ -317,5 +262,71 @@ question_3_comparison |>
   scale_y_continuous(labels = scales::percent, limits = c(0, 1)) +
   facet_wrap(vars(country), nrow = 2)
 ```
+
+@fig-question5 and @fig-question6 use the same questions as @fig-question2 and @fig-question3 respectively, taking in data from 2002 and 2012 for the Philippines and Chile. The 2012 dataset contains 2 additional response choices in the 2012: “Can’t Choose” and “No Answer”, which was not in the 2002 dataset but is also included in the graph. Because there are no 2002 responses with those responses,  we will not be taking that into consideration for the comparison. However, it is important to note that the inclusion of those responses are potentially affecting the proportions of the other response categories. 
+@fig-question5 reflects the citizens of Chile and the Philippines's opinions of womens’ involvement in the labour force when they have children under the school age. For Chile, the number of responses for working full time has decreased, working part time has increased, and staying at home has decreased. Although there is less favour upon working full time, the most significant increase were the responses which supported working part time. This can potentially be interpreted as a surplus of citizens advocating for a work-life balance. However, fewer civilians supporting working full-time goes against the idea of women being more involved in the workforce.  The responses for the Philippines seems to be less encouraging of women joining the labour force. The response numbers show a decrease for working full time, an increase for working part time, and an increase in staying at home. Although the increases are very small, it still communicates how the mindset of the citizens have had minimal progression in terms of gender inequality in the workforce.  
+@fig-question6 reflects the public opinions of if women should be working while the youngest child is still in school. The Philippines and Chile experienced the same trends, in which responses for working full time and part time increased, and staying at home decreased. This could be attributed to the  fact that the child is at an age where they are not completely dependent on the mother in terms of basic survival skills. Furthermore, another key factor to the increase in support for women in the workplace likely involves the evolution of laws and policies. As a result, women may feel more comfortable indulging in the workplace when provided with more security. Lastly, as gender inequality remains an occurring issue, a surplus of global movements to support women's inclusivity in traditionally male dominated environments could have transformed the worldview of citizens. 
+
+# Discussion
+
+## Temporal Considerations
+
+The datasets were based on information gathered in 2002 and 2012. More than one and two decades later, it is very possible that the responses will be very different from current data. Depending on the country, gender equality practices may have improved, stayed the same, or worsened.
+
+### 2002-2012 Comparison
+Because 2002 and 2012 are a decade apart, due to various reasons, it is inevitable that there will be change in societal attitudes and opinions. A principal contributor to these changes may be policy adjustments, which have been especially active in the years of 2002-2012 due to various feminist movements. 
+
+### Philippines
+In 2009, The Magna Carta of Women, officially known as Republic Act No. 9710, aimed to eliminate discrimination against women by ensuring their rights in economic, political, social, and cultural realms. It mandated gender sensitivity training for public officials, established mechanisms for gender-responsive governance, and integrated principles of the Convention on the Elimination of All Forms of Discrimination Against Women (CEDAW) into Philippine law. The Magna Carta also reinforced the Gender and Development (GAD) budget policy, requiring government agencies to allocate resources for gender and development programs [@sharp2011republic].
+
+### Chile
+Chile Law 20.545 was implemented in 2011 to enhance benefits and ameliorate access for economically active women, while also incorporating father participation. Maternity leave was increased from 12-14 weeks for full time workers, and fathers were also enabled to take paid leave for up to 5 weeks if eligible. The Maternity Protection coverage percentage in 2002 was recorded as 23.3% and 36.5%  in 2012, indicating a 13.2% increase. The effect on lower education households was particularly significant when compared to women of higher and middle level education; this provokes thought about the specific challenges faced by women of lower education and income levels and how policies have been reformed to adhere to these people groups [@delgado_baltica_2019].
+
+## The Relationship Between Cultural Values and Implemented Policies
+The International Labour Organization (ILO), one of the oldest specialised agencies of the United Nations, has endorsed Maternity Protection  since 1919. In 2000, it was established that there were five crucial aspects of Maternity Protection: 
+1. Maternity leave, which permits a woman a period of time to leave after childbirth
+2. Cash and Medical Benefits, so that the woman can provide proper conditions for living for both herself and the child
+3. Health Protection at the workplace for the mother and unborn child during pregnancy
+4. Employment Protection and Non-Discrimination, so that the woman is not terminated on grounds related to the pregnancy and is protected to return to the same position after her maternity leave
+5. Breastfeeding Arrangements, for women in the workplace who need to breastfeed or express milk 
+[@maternity_protection_convention_2000].
+
+In 2002, each country had differently implemented policies. While the policies may have seemed advantageous for women who wanted to engage in the workforce, in practice, the execution did not align as effectively. As of 2014, 830 million women workers had no access to Maternity Protection policies, with 80% of these women residing in lower income countries, despite improved laws to protect women [@delgado_baltica_2019]. The policies may not have been reaching vulnerable groups and perspectives of citizens may have also differed. 
+
+### Denmark and U.S
+
+### Philippines
+In 2002, the Philippines demonstrated a commitment to gender equality through significant policies through The Women in Nation Building Act (Republic Act No. 7192) which aimed to integrate  women into decision-making and development processes at all levels, from national to barangay, as highlighted by [@bloom1992gender]. This Act, along with the Philippine Development Plan for Women (PDPW), addressed women's equality and development comprehensively. Bloom further explains that the PDPW sought to transform traditional views of women's roles, promote shared family responsibilities, effect sociocultural changes, guarantee economic opportunities, empower women in politics, and embed women's equality within the legal framework. These initiatives underline the Philippine government's efforts to bridge gender disparities and enhance women's roles across the societal spectrum.
+
+Based on @fig-question2 however, the gap between these policy aspirations and public perceptions regarding gender roles is evident, as the Philippines demonstrated the least amount of support for women working full-time and had the most votes for women staying at home when caring for a child under school age. In contrast, Velasco points out that in tandem with these progressive policies, public opinion surveys indicate a significant portion (72%) of the Filipino population believe that there are equal rights between men and women [@velascopublic]. This discrepancy underscores the challenges in shifting traditional gender norms and suggests a need for continued advocacy and education to align public opinion with policy objectives for gender equality. 
+
+### Japan
+The enactment of the Equal Employment Opportunity Law (EEOL) in 1985 marked Japan's legislative effort to address gender disparities in the workplace. However, this law, which aimed at prohibiting discrimination in recruitment, hiring, promotion, and other employment practices, has been criticized for its lack of enforcement mechanisms and for perpetuating traditional gender roles rather than challenging them [@knapp1998don]. This legislative approach reflects a broader cultural reluctance to disrupt traditional gender norms. The Japanese concept of "ryosai kenbo" (good wife, wise mother) persists, emphasizing women's roles in child-rearing and domestic responsibilities over professional development. Despite legal advancements, societal expectations continue to prioritize women's domestic roles, often at the expense of their career aspirations.
+
+Moreover, public opinion and corporate practices in Japan have historically viewed women's participation in the workforce through a lens that emphasizes their role as temporary workers rather than permanent members of the workforce. This perception is reinforced by the practice of hiring women primarily for roles that are seen as extensions of their domestic responsibilities, limiting their professional growth and perpetuating gender stereotypes [@nester1992japanese].
+In contrast to the legislative approach, which promotes gender equality, @fig-question1,  @fig-question2, @fig-question3, and @fig-question4 highlight the extent at which cultural values and societal norms in Japan continue to exert a powerful influence over the roles and expectations of women, both in the home and the workplace.
+
+The contrast between Japan's gender equality policies and the persistence of traditional gender roles within its society likely arises from the entrenched cultural values, influencing both societal expectations and corporate practices, despite legislative efforts like the Equal Employment Opportunity Law (EEOL) which aim to promote gender equality in the workplace but fail to mandate substantial changes due to their accommodation of existing societal norms and business practices.
+
+### Latin America
+Between the years of 2003-2013, five countries in Latin America (Argentina, Uruguay, Colombia, Brazil, and Chile) enhanced their policies and adjusted their legal frameworks pertaining to Maternity Protection. Countries such as Brazil and Chile, in which there are various levels of socioeconomic classification, reform must be reinforced with additional policies to ensure effectiveness and combat gender inequality. 
+
+#### Brazil
+The 1988 Brazilian Constitution announced that women and men had equal rights and obligations in the family, and women had 120 days of paid maternity leave [@017227cc-579f-3bb1-8b01-3d7e5202c46e]. Further, 2002 was a notable year for the Brazilian population. A World Cup title was won, and a new civil code was adopted, allowing for more freedom for women and overturning the discriminatory provision where household matters and joint marital property were exclusively managed by the man of the house. (BR2) This modification pushed for gender equality in the country, yet their presence within the workforce was still underrepresented. In a 2001 nationwide survey, 55% of Brazilian women expressed their interest in working more and doing less household work, whereas 38% indicated they would prefer to work little to none, and concentrate more time doing household work. Furthermore, 87% of women concurred that household responsibilities should be shared amongst men and women equally, but 85% also mentioned that when young children are present, the women should have the role of the principal caregiver and stay home [@lobel_breiterman_sandro_pinto_gomes_foods_russo_johnson_fraone_hartmann_et_al.]. This perspective may be influenced by the gender wage gap, in which women earn 71% of the men’s income. Thus, from an economic standpoint, it makes more sense for women to stay home and prioritize caregiving during the developmental stages of the child. Figures 2 and 3 accurately illustrate these claims, as there are considerable responses for working part-time and staying at home, and significantly less for working full time when considering childcare. 
+
+#### Chile
+Since 1917, Chile has had established maternity benefits for employed women, and since 1973, the majority of ILO benefits were encompassed into Chilean legislation. Law 17.928 (1972) stated these requirements for working women who met the legal standards [@delgado_baltica_2019]:
+
+1. A six week leave before childbirth and another 12 weeks after childbirth, with full remuneration covered by the state (up to $3,100 USD present value).
+2. Paid leave for the mother in the case their child under one year old contracts sickness.
+3. Two-Year job protection from the beginning of pregnancy (the woman can’t be terminated).
+4. A daily one hour break for breastfeeding.
+
+The amount of women who have gained from these benefits have been low; most of the beneficiaries have been women amongst the wealthier income brackets [@delgado_baltica_2019]. However, in an ISSP survey conducted in 2002, 81% of Chilean women agreed with the statement that “Taking both the good and the bad together, family life suffers when women work full time” and 83% of men agreed with the statement “It it likely a preschooler will suffer if his mother works” [@contreras_plaza_2010, p. 33].
+Our graphs align with this information about public opinion and economic status. Many Chileans supported staying at home when there is a child to consider, portraying how many citizens put emphasis on caring for the family. The amount of responses for working part-time are also considerable, which complies with the idea that many Chilean women who possess a lower socioeconomic status must work in order to meet financial obligations. Finally, the policies in place are adequate enough so that women have minimal flexibility to balance work and family life. Overall, the maternity and protective laws provide marginal benefit due to the accessibility towards diverse economic groups, but the underlying preference for traditional family roles are observable from the public opinions of the citizens. 
+
+# Conclusion
+
+# Appendix
 
 \newpage
