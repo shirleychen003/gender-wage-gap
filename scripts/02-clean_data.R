@@ -14,6 +14,7 @@ library(tidyverse)
 library(knitr)
 library(janitor)
 library(lubridate)
+library(readr)
 
 #### Should women work after marriage and before kids? ####
 # 6 = US, 32 = Denmark, 31 = Chile, 35 = Brazil, 21 = Philippines, 24 = Japan
@@ -139,7 +140,7 @@ cleaned_q1_2002 <-
   bind_rows(response_data_q1_philippines) |>
   bind_rows(response_data_q1_japan)
 
-write_csv(cleaned_q1_2002, "inputs/data/analysis_data/cleaned_q1_2002.csv")
+write_csv(cleaned_q1_2002, "outputs/data/cleaned_q1_2002.csv")
 
 
 
@@ -200,7 +201,7 @@ response_data_q2 <-
 # Create new dataframes to calculate percentage 
 
 ## Create a count of num of reports per question per country
-report_counts_question_q2 <- 
+report_counts_question_q2 <-
   response_data_q2 |>
   group_by(country, question_response) |>
   summarise(number_of_reports = n())
@@ -266,7 +267,7 @@ cleaned_q2_2002 <-
   bind_rows(response_data_q2_philippines) |>
   bind_rows(response_data_q2_japan)
 
-write_csv(cleaned_q2_2002, "inputs/data/analysis_data/cleaned_q2_2002.csv")
+write_csv(cleaned_q2_2002, "outputs/data/cleaned_q2_2002.csv")
 
 
 #### Should women work with youngest kid in school? ####
@@ -389,7 +390,7 @@ cleaned_q3_2002 <-
   bind_rows(response_data_q3_philippines) |>
   bind_rows(response_data_q3_japan)
 
-write_csv(cleaned_q3_2002, "inputs/data/analysis_data/cleaned_q3_2002.csv")
+write_csv(cleaned_q3_2002, "outputs/data/cleaned_q3_2002.csv")
 
 #### Should women work when kids have left home? ####
 # 6 = US, 13 = Sweden, 32 = Denmark, 4 = Great Britain
@@ -514,7 +515,7 @@ cleaned_q4_2002 <-
   bind_rows(response_data_q4_philippines) |>
   bind_rows(response_data_q4_japan)
 
-write_csv(cleaned_q4_2002, "inputs/data/analysis_data/cleaned_q4_2002.csv")
+write_csv(cleaned_q4_2002, "outputs/data/cleaned_q4_2002.csv")
 
 
 
@@ -524,7 +525,6 @@ write_csv(cleaned_q4_2002, "inputs/data/analysis_data/cleaned_q4_2002.csv")
 
 # Philippines = 608
 # Chile = 152
-
 
 response_data_2012 <-
   read_csv(
@@ -567,7 +567,7 @@ response_data_2012_q2 <-
     )
   )
 
-# Create new dataframes to calculate percentage 
+# Create new dataframes to calculate percentage
 
 
 ## Create a count of num of reports per question per country
@@ -628,20 +628,18 @@ response_data_q2_philippines <-
 # Bind response data for school age children from 2012 and 2002
 comparison_q2 <-
   bind_rows(response_data_2012_q2_chile) |>
-  bind_rows(response_data_2012_q2_philippines)|>
+  bind_rows(response_data_2012_q2_philippines) |>
   bind_rows(response_data_q2_chile) |>
   bind_rows(response_data_q2_philippines)
 
 
-write_csv(comparison_q2, "inputs/data/analysis_data/comparison_q2.csv")
+write_csv(comparison_q2, "outputs/data/comparison_q2.csv")
 
 
 #### 2012 Data - Should women work youngest child in schl ####
 # Open data
-
-# Philippines = 608
-# Chile = 152
-
+# Philippines=608
+# Chile=152
 
 response_data_2012 <-
   read_csv(
@@ -684,7 +682,7 @@ response_data_2012_q3 <-
     )
   )
 
-# Create new dataframes to calculate percentage 
+# Create new dataframes to calculate percentage
 
 
 ## Create a count of num of reports per question per country
@@ -749,4 +747,4 @@ comparison_q3 <-
   bind_rows(response_data_q3_chile) |>
   bind_rows(response_data_q3_philippines)
 
-write_csv(comparison_q3, "inputs/data/analysis_data/comparison_q3.csv")
+write_csv(comparison_q3, "outputs/data/comparison_q3.csv")

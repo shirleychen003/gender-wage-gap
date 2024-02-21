@@ -8,6 +8,10 @@ abstract: ""
 format: pdf
 toc: true
 number-sections: true
+bibliography: bibliography.bib
+editor: 
+  markdown: 
+    wrap: sentence
 ---
 
 ```{r setup, include=FALSE}
@@ -18,58 +22,76 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(tidyverse)
 library(janitor)
 library(readr)
-library(opendatatoronto)
 library(here)
 library(ggplot2)
 library(knitr)
 library(usethis)
-library(gitcreds)
 library(kableExtra)
 ```
 
 # Introduction
 
-# Data 
+# Data
 
 ## Source
-The foundation of our replication study is rooted in the examination of the impact of children on gender inequality in labor market outcomes, initially explored by Kleven, Landais, and Søgaard using Danish administrative data. Our study extends this investigation globally, focusing on the Philippines, Japan, Chile, and Brazil. To maintain consistency with the original study, we will utilize the 2002 dataset on Family and Changing Gender Roles from the International Social Survey Programme (ISSP), available at GESIS. This dataset offers a source of internationally comparable data concerning gender roles, family structures, and labor market participation, facilitating a direct comparison across diverse cultural and economic landscapes. Additionally, we will compare our findings with the 2012 ISSP module data to identify changes in gender roles and labor market dynamics over time. This comparison aims to highlight the evolving nature of gender inequality and the child penalty, enhancing our analysis with a longitudinal perspective that underscores global and national trends in gender equality.
+
+The foundation of our replication study is rooted in the examination of the impact of children on gender inequality in labor market outcomes, initially explored by Kleven, Landais, and Søgaard using Danish administrative data.
+Our study extends this investigation globally, focusing on the Philippines, Japan, Chile, and Brazil.
+To maintain consistency with the original study, we will utilize the 2002 dataset on Family and Changing Gender Roles from the International Social Survey Programme (ISSP), available at GESIS.
+This dataset offers a source of internationally comparable data concerning gender roles, family structures, and labor market participation, facilitating a direct comparison across diverse cultural and economic landscapes.
+Additionally, we will compare our findings with the 2012 ISSP module data to identify changes in gender roles and labor market dynamics over time.
+This comparison aims to highlight the evolving nature of gender inequality and the child penalty, enhancing our analysis with a longitudinal perspective that underscores global and national trends in gender equality.
 
 ## Methodology
-Our methodology will adapt the original study's quasi-experimental event study approach to the ISSP 2002 dataset. This dataset encompasses a wide range of variables relevant to understanding gender roles within the family and their impact on labor market outcomes, offering a unique opportunity to explore these dynamics in a global context. Specifically, we will:
 
-- Analyze responses related to labor force participation, hours worked, and perceptions of gender roles before and after the birth of the first child.
-- Utilize the ISSP 2002 and 2012 datasets’ cross-national scope to compare findings across the target countries, assessing the universality and variability of the child penalty phenomenon.
-- Incorporate additional variables from the ISSP dataset that capture cultural attitudes toward gender roles and family policies, allowing for a more nuanced analysis of factors influencing gender inequality in the labor market.
+Our methodology will adapt the original study's quasi-experimental event study approach to the ISSP 2002 dataset.
+This dataset encompasses a wide range of variables relevant to understanding gender roles within the family and their impact on labor market outcomes, offering a unique opportunity to explore these dynamics in a global context.
+Specifically, we will:
+
+-   Analyze responses related to labor force participation, hours worked, and perceptions of gender roles before and after the birth of the first child.
+-   Utilize the ISSP 2002 and 2012 datasets’ cross-national scope to compare findings across the target countries, assessing the universality and variability of the child penalty phenomenon.
+-   Incorporate additional variables from the ISSP dataset that capture cultural attitudes toward gender roles and family policies, allowing for a more nuanced analysis of factors influencing gender inequality in the labor market.
 
 ## Features
-The original survey data evaluates participants across 235 variables, offering a granular view of the interplay between gender roles, family responsibilities, and work. These variables span a broad spectrum, from demographic details to nuanced attitudes towards gender equality and labor market participation, providing a rich foundation for our analysis.
+
+The original survey data evaluates participants across 235 variables, offering a granular view of the interplay between gender roles, family responsibilities, and work.
+These variables span a broad spectrum, from demographic details to nuanced attitudes towards gender equality and labor market participation, providing a rich foundation for our analysis.
 
 ### Demographics
+
 Variables include age, gender, marital status, number of children, and education level, allowing for a detailed demographic profiling of respondents.
 
 ### Family and Household Dynamics
+
 This category covers variables related to household composition, childcare arrangements, and sharing of household responsibilities, highlighting the division of labor within families.
 
 ### Labor Market Engagement
+
 Variables assess employment status, work hours, occupation type, and perceptions of work-life balance, capturing the intricate relationship between labor market participation and family life.
 
 ### Gender Roles and Attitudes
+
 A significant portion of the dataset is devoted to exploring societal and personal beliefs about gender roles, including attitudes towards women's and men's roles in the family and the workplace.
 
 ### Policy and Cultural Context
+
 Variables also probe awareness and opinions on family-related policies, such as parental leave and public childcare, as well as broader cultural norms influencing gender roles.
 
 ### Well-being and Satisfaction
+
 Measures of personal and professional satisfaction, life quality, and perceived impacts of family and work responsibilities on individual well-being are included, offering insights into the subjective experiences of respondents.
 
 # Results
+
 ## Overall Trend
-Figure 1, 2, 3, and 4 are all replications of the graphs in Figure A.II: Gender Norms Across Countries in the online appendix of the original paper, but with U.S, Denmark, Japan, Philippines, Brazil, and Chile as the countries of analysis. Each figure represents the data collected regarding the opinions of womens’ involvement in the workplace, investigating if women without children, with children under school age, with children in school, and with children who have left home should be working full time, part-time, or stay at home.
-The four questions regarding gender equality that were surveyed across the countries were “Do you think women should work outside the home full-time, part-time, or not at all when…
-… they are married but with no children?” (Figure 1) 
-… there is a child under school age?” (Figure 2)
-… the youngest child is still in school?”(Figure 3)
-… the child has left home?”(Figure 4)
+
+Figure 1, 2, 3, and 4 are all replications of the graphs in Figure A.II: Gender Norms Across Countries in the online appendix of the original paper, but with U.S, Denmark, Japan, Philippines, Brazil, and Chile as the countries of analysis.
+Each figure represents the data collected regarding the opinions of womens’ involvement in the workplace, investigating if women without children, with children under school age, with children in school, and with children who have left home should be working full time, part-time, or stay at home.
+The four questions regarding gender equality that were surveyed across the countries were “Do you think women should work outside the home full-time, part-time, or not at all when… … they are married but with no children?”
+(Figure 1) … there is a child under school age?”
+(Figure 2) … the youngest child is still in school?”
+(Figure 3) … the child has left home?”
+(Figure 4)
 
 ```{r}
 #| include: false
@@ -77,7 +99,7 @@ The four questions regarding gender equality that were surveyed across the count
 #| message: false
 #| echo: false
 
-
+library(dplyr)
 library(tidyverse)
 library(knitr)
 library(here)
@@ -85,46 +107,43 @@ library(here)
 #### Import data ####
 # Question 1 Dataset
 question_1_2002 = read_csv(
-  file = here("inputs/data/analysis_data/cleaned_q1_2002.csv"),
+  file = here("outputs/data/cleaned_q1_2002.csv"),
   show_col_types = FALSE
 )
 
 # Question 2 Dataset
 question_2_2002 = read_csv(
-  file = here("inputs/data/analysis_data/cleaned_q2_2002.csv"),
+  file = here("outputs/data/cleaned_q2_2002.csv"),
   show_col_types = FALSE
 )
 
 # Question 3 Dataset
 question_3_2002 = read_csv(
-  file = here("inputs/data/analysis_data/cleaned_q3_2002.csv"),
+  file = here("outputs/data/cleaned_q3_2002.csv"),
   show_col_types = FALSE
 )
 
 # Question 4 Dataset
 question_4_2002 = read_csv(
-  file = here("inputs/data/analysis_data/cleaned_q4_2002.csv"),
+  file = here("outputs/data/cleaned_q4_2002.csv"),
   show_col_types = FALSE
 )
 
 # Comparison Question 2 Dataset
 question_2_comparison = read_csv(
-  file = here("inputs/data/analysis_data/comparison_q2.csv"),
+  file = here("outputs/data/comparison_q2.csv"),
   show_col_types = FALSE
 )
 
 # Question 1 Dataset
 question_3_comparison = read_csv(
-  file = here("inputs/data/analysis_data/comparison_q3.csv"),
+  file = here("outputs/data/comparison_q3.csv"),
   show_col_types = FALSE
 )
 ```
 
-
-
 ```{r}
-#| label: tbl-q12002
-#| tbl-cap: Responses to "Should women work full-time, part-time, or not at all after marriage, but before children?"
+#| fig-cap: Q1 - "Should women work full-time, part-time, or not at all after marriage, but before children?"
 #| echo: false
 
 
@@ -136,14 +155,14 @@ question_1_2002 |>
   theme(legend.position = "bottom") +
   labs(x = "Question Responses",
        y = "Percentage of Observations", fill = "Country") +
-  scale_fill_manual( values = c("#26476C", "#863B3E", "red", "pink", 
-                                "green", "blue")) +
+  scale_fill_manual( values = c("#009739", "#8eadc5", "#C8102E", "#FFC0CB", 
+                                "#FED141", "#C3B1E1")) +
   scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 ```
 
 ```{r}
 #| echo: false
-#| fig-cap: Do you think women should work outside the home full-time, part-time, or not at all when there is a child under school age?
+#| fig-cap: Q2 - "Do you think women should work outside the home full-time, part-time, or not at all when there is a child under school age?"
 
 
 # Question 2
@@ -154,15 +173,15 @@ question_2_2002 |>
   theme(legend.position = "bottom") +
   labs(x = "Question Responses",
        y = "Percentage of Observations", fill = "Country") +
-  scale_fill_manual( values = c("#26476C", "#863B3E", "red", "pink", 
-                                "green", "blue")) +
+  scale_fill_manual( values = c("#009739", "#8eadc5", "#C8102E", "#FFC0CB", 
+                                "#FED141", "#C3B1E1")) +
   scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 
 ```
 
 ```{r}
 #| echo: false
-#| fig-cap: Do you think women should work outside the home full-time, part-time, or not at all when the youngest child is still in school?
+#| fig-cap: Q3 - "Do you think women should work outside the home full-time, part-time, or not at all when the youngest child is still in school?"
 
 
 # Question 3
@@ -173,8 +192,8 @@ question_3_2002 |>
   theme(legend.position = "bottom") +
   labs(x = "Question Responses",
        y = "Percentage of Observations", fill = "Country") +
-  scale_fill_manual( values = c("#26476C", "#863B3E", "red", "pink", 
-                                "green", "blue")) +
+  scale_fill_manual( values = c("#009739", "#8eadc5", "#C8102E", "#FFC0CB", 
+                                "#FED141", "#C3B1E1")) +
   scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 
 
@@ -183,7 +202,7 @@ question_3_2002 |>
 
 ```{r}
 #| echo: false
-#| fig-cap: Do you think women should work outside the home full-time, part-time, or not at all when the child has left home?
+#| fig-cap: Q4 - "Do you think women should work outside the home full-time, part-time, or not at all when the child has left home?"
 
 
 # Question 4
@@ -194,20 +213,27 @@ question_4_2002 |>
   theme(legend.position = "bottom") +
   labs(x = "Question Responses",
        y = "Percentage of Observations", fill = "Country") +
-  scale_fill_manual( values = c("#26476C", "#863B3E", "red", "pink", 
-                                "green", "blue")) +
+  scale_fill_manual( values = c("#009739", "#8eadc5", "#C8102E", "#FFC0CB", 
+                                "#FED141", "#C3B1E1")) +
   scale_y_continuous(labels = scales::percent, limits = c(0, 1))
 ```
 
-(Figure 2) shows that amongst all the countries included, there are significantly less votes in support of working full-time and more support for staying at home compared to the other graphs due to the increased responsibility of a younger child. The Asian countries included in the graph, Japan and Philippines, display the most votes for staying at home, with their percentages both being higher than 50%.  This graph displays how most of the countries, excluding Denmark,  are actually like minded within this inquiry, as the values do not significantly differ from one another. 
-However, although the Philippines was one of the leading countries that supported stay at home women, the Philippines amassed the highest number of votes out of all the countries when supporting working full time. This may be attributed to the environmental and political factors of the country; in order to raise a child, it is necessary to also work to generate enough income to make ends meet.
+(Figure 2) shows that amongst all the countries included, there are significantly less votes in support of working full-time and more support for staying at home compared to the other graphs due to the increased responsibility of a younger child.
+The Asian countries included in the graph, Japan and Philippines, display the most votes for staying at home, with their percentages both being higher than 50%.
+This graph displays how most of the countries, excluding Denmark, are actually like minded within this inquiry, as the values do not significantly differ from one another.
+However, although the Philippines was one of the leading countries that supported stay at home women, the Philippines amassed the highest number of votes out of all the countries when supporting working full time.
+This may be attributed to the environmental and political factors of the country; in order to raise a child, it is necessary to also work to generate enough income to make ends meet.
 
-(Figure 1) shows the responses to if women should be working full-time if they are married with no parental duties to attend to. Majority of the responses across all the countries support the idea of women working full time under this circumstance. Denmark showcased the highest degree of support for women working full time, confirming the common, public opinion of the Danish peoples’ progressive mindset. In contrast, the Philippines demonstrated the least amount of support for women working full time and also had the most votes for women staying at home under this circumstance. The Philippines stays consistent in having the most votes in favour of women staying home despite the situation, which is also seen in (Figure 3) and (Figure 4). 
-The graph of (Figure 4) is quite similar to (Figure 1), as they both address womens’ involvement in the workplace when there is none to minimal parental responsibility. 
+(Figure 1) shows the responses to if women should be working full-time if they are married with no parental duties to attend to.
+Majority of the responses across all the countries support the idea of women working full time under this circumstance.
+Denmark showcased the highest degree of support for women working full time, confirming the common, public opinion of the Danish peoples’ progressive mindset.
+In contrast, the Philippines demonstrated the least amount of support for women working full time and also had the most votes for women staying at home under this circumstance.
+The Philippines stays consistent in having the most votes in favour of women staying home despite the situation, which is also seen in (Figure 3) and (Figure 4).
+The graph of (Figure 4) is quite similar to (Figure 1), as they both address womens’ involvement in the workplace when there is none to minimal parental responsibility.
 
 (Figure 3) and (Figure 4) encompass the opinions of womens’ involvement in the workplace when their children are at ages of increased independence.
 
-Overall, the more childcare responsibilities that a woman is involved in, the lower the workplace expectations. 
+Overall, the more childcare responsibilities that a woman is involved in, the lower the workplace expectations.
 
 ## U.S. and Denmark
 
@@ -216,15 +242,34 @@ Overall, the more childcare responsibilities that a woman is involved in, the lo
 ## Asia - Philippines and Japan
 
 # Discussion
-## Time Range Considerations
-The datasets were based on information gathered in 2002 and 2012. More than a decade later, it is very possible that the responses will be very different. Depending on the country, gender equality practices may have improved, stayed the same, or worsened.
-In the U.S, there are supposedly more women engaging in the workforce than ever before. The U.S. Bureau of Labor Statistics reported that women aged 16 and older made up 62.3 % of the workforce in 2002 (3). According to a recent 2023 report also released by the Bureau of Labor Statistics, the women’s labour force participation rate hit 77.8%, which can be attributed to various factors (1). One of the reasons for this high number may be the rising  need for women dominating industries, such as healthcare and caregiving. Especially during the COVID-19 pandemic, although many individuals lost their jobs, the health services, hospitality, and education sectors, which are women-dominated workforces, continued to boom throughout the economic recovery. Another potential reason could be due to the decline in childbirth rates. If more women have less childcare responsibility, the amount of women in the workforce is bound to increase since there is more incentive to pursue their occupational desires. The U.S. is a prime example of how the data from 2002 vastly differs from the modern day data. 
-However, Brazil’s numbers of women engaging in the workforce have had minimal change. According to the Gender Data Portal provided by The World Bank, Brazilian women made up 53.4% of the workforce in 2002 and 53.6% in 2022, exhibiting a 0.2% increase in the two decades. Although Brazil has distinct policies to protect women in the workplace, equal rights are not evident in practice. After the pandemic at the end of 2021, women encountered higher unemployment rates. It is recorded that women earn 77% of men’s wages and are mostly within “low-productivity, low-paying jobs” (4). Due to this, it made more economic sense for women to stay at home to do housework or fulfill the caregiver role if there were children present in the daily. In a 2001 survey, 
 
+## Time Range Considerations
+
+The datasets were based on information gathered in 2002 and 2012.
+More than a decade later, it is very possible that the responses will be very different.
+Depending on the country, gender equality practices may have improved, stayed the same, or worsened.
+In the U.S, there are supposedly more women engaging in the workforce than ever before.
+The U.S. Bureau of Labor Statistics reported that women aged 16 and older made up 62.3 % of the workforce in 2002 (3).
+According to a recent 2023 report also released by the Bureau of Labor Statistics, the women’s labour force participation rate hit 77.8%, which can be attributed to various factors (1).
+One of the reasons for this high number may be the rising need for women dominating industries, such as healthcare and caregiving.
+Especially during the COVID-19 pandemic, although many individuals lost their jobs, the health services, hospitality, and education sectors, which are women-dominated workforces, continued to boom throughout the economic recovery.
+Another potential reason could be due to the decline in childbirth rates.
+If more women have less childcare responsibility, the amount of women in the workforce is bound to increase since there is more incentive to pursue their occupational desires.
+The U.S. is a prime example of how the data from 2002 vastly differs from the modern day data.
+However, Brazil’s numbers of women engaging in the workforce have had minimal change.
+According to the Gender Data Portal provided by The World Bank, Brazilian women made up 53.4% of the workforce in 2002 and 53.6% in 2022, exhibiting a 0.2% increase in the two decades.
+Although Brazil has distinct policies to protect women in the workplace, equal rights are not evident in practice.
+After the pandemic at the end of 2021, women encountered higher unemployment rates.
+It is recorded that women earn 77% of men’s wages and are mostly within “low-productivity, low-paying jobs” (4).
+Due to this, it made more economic sense for women to stay at home to do housework or fulfill the caregiver role if there were children present in the daily.
+In a 2001 survey,
 
 # Conclusion
 
 ```{r}
+#| echo: false
+#| Fig-cap: 2002 vs. 2012 - "Do you think women should work outside the home full-time, part-time, or not at all when there is a child under school age?"
+
 question_2_comparison$country <- 
   factor(question_2_comparison$country, levels = c("Chile", "Philippines"))
 
@@ -236,16 +281,41 @@ question_2_comparison$question_response <-
 
 # Graph Simulated Data
 question_2_comparison |>
-  mutate(year_collected = as_factor(year_collected)) %>% 
+  mutate(year_collected = as_factor(year_collected)) |>
   ggplot(aes(x = question_response, y = percentage, fill = year_collected)) +
   geom_col(position = "dodge") +
   theme(legend.position = "bottom") +
   labs(x = "Question Responses",
-       y = "Percentage of Observations", fill = "Country") +
-  scale_fill_manual( values = c("#26476C", "#863B3E")) +
+       y = "Percentage of Observations", fill = "Year") +
+  scale_fill_manual( values = c("#8eadc5", "#FED141")) +
   scale_y_continuous(labels = scales::percent, limits = c(0, 1)) +
   facet_wrap(vars(country), nrow = 2)
 ```
 
+```{r}
+#| echo: false
+#| fig-cap: 2002 vs. 2012 - "Do you think women should work outside the home full-time, part-time, or not at all when the youngest child is still in school?"
+
+question_3_comparison$country <- 
+  factor(question_3_comparison$country, levels = c("Chile", "Philippines"))
+
+question_3_comparison$question_response <-
+  factor(question_3_comparison$question_response, levels = c("Work Full-Time", 
+                                                     "Work Part-Time", 
+                                                     "Stay at Home", "Can't Choose", "No Answer"))
 
 
+# Graph Simulated Data
+question_3_comparison |>
+  mutate(year_collected = as_factor(year_collected)) |> 
+  ggplot(aes(x = question_response, y = percentage, fill = year_collected)) +
+  geom_col(position = "dodge") +
+  theme(legend.position = "bottom") +
+  labs(x = "Question Responses",
+       y = "Percentage of Observations", fill = "Year") +
+  scale_fill_manual( values = c("#8eadc5", "#FED141")) +
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1)) +
+  facet_wrap(vars(country), nrow = 2)
+```
+
+\newpage
