@@ -1,7 +1,7 @@
 ---
 title: "From Laws to Attitudes: Global Perspectives of Mother’s in the Workplace From 2002 to 2012"
 author: "Shirley Chen, Jessica Im, David James Dimalanta"
-thanks: "Code and data in this report are available at:https://github.com/shirleychen003/gender-wage-gap.git" 
+thanks: "Code and data in this report are available at:https://github.com/shirleychen003/gender-wage-gap.git. Replication on Social Science Reproduction: https://doi.org/10.48152/ssrp-wpj7-na87" 
 platform available at: "TBA"
 date: February 20, 2024
 date-format: "long" 
