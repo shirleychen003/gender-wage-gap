@@ -1,3 +1,4 @@
+# From Laws to Attitudes: Global Perspectives of Mother’s in the Workplace From 2002 to 2012
 ## Overview
 This paper analyzes the public opinions in various countries (U.S., Denmark, Chile, Brazil, Japan, Philippines) about women's involvement in the workforce under 4 circumstances: “Do you think women should work outside the home full-time, part-time, or not at all when…
 1. they are married but with no children?”
